@@ -18,6 +18,10 @@ public interface IMyappRepository {
 	List<Map<String, Object>> getListAssign(int lec_id);
 	List<Map<String, Object>> getListAssign();
 	
+	AssignVO getAssignInfo(int lec_id);
+	EntVO getEntInfo(int ent_id);
+	LecVO getLecInfo(int lec_id);
+	
 	void updateEnt(EntVO ent);
 	void updateLec(LecVO lec);		//과목 수정
 	void updateAssign(AssignVO asign);

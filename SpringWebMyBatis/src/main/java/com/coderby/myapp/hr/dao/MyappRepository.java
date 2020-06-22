@@ -155,21 +155,21 @@ public class MyappRepository implements IMyappRepository {
 
 	@Override
 	public void deleteEnt(int ent_id) {
-		jdbcTemplate.update("delete from enterprise where id = ?", 
+		jdbcTemplate.update("delete from enterprise where ent_id = ?", 
 				ent_id);
 
 	}
 
 	@Override
 	public void deleteLec(int lec_id) {
-		jdbcTemplate.update("delete from lecture where id = ?", 
+		jdbcTemplate.update("delete from lecture where lec_id = ?", 
 				lec_id);
 
 	}
 
 	@Override
 	public void deleteAssign(int lec_id, String asign_name) {
-		jdbcTemplate.update("delete from assignment where id = ? and asign_name = ?",
+		jdbcTemplate.update("delete from assignment where lec_id = ? and asign_name = ?",
 				lec_id, 
 				asign_name);
 
@@ -187,6 +187,27 @@ public class MyappRepository implements IMyappRepository {
 	public List<Map<String, Object>> getListAssign() {
 		return jdbcTemplate.queryForList("select * from assignment");
 
+	}
+
+
+	@Override
+	public AssignVO getAssignInfo(int lec_id) {
+		String sql = "select * from assignment where lec_id =?"	;
+		return jdbcTemplate.queryForObject(sql, new AssignMapper(), lec_id);
+	}
+
+
+	@Override
+	public EntVO getEntInfo(int ent_id) {
+		String sql = "select * from enterprise where ent_id =?"	;
+		return jdbcTemplate.queryForObject(sql, new EntMapper(), ent_id);
+	}
+
+
+	@Override
+	public LecVO getLecInfo(int lec_id) {
+		String sql = "select * from lecture where lec_id =?"	;
+		return jdbcTemplate.queryForObject(sql, new LecMapper(), lec_id);
 	}
 
 

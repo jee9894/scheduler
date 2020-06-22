@@ -53,9 +53,9 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 	public String getAllLec(Model model)
 	{
 		List<Map<String, Object>> lec_list = myappService.getListLec();
-		model.addAttribute(lec_list);
+		model.addAttribute("lec_list", lec_list);
 		List<Map<String, Object>> assign_list = myappService.getListAssign();
-		model.addAttribute(assign_list);
+		model.addAttribute("assign_list",assign_list);
 		return "sch/lecture";
 	}
 	@RequestMapping(value="/lecture/{lec_id}")
@@ -66,6 +66,81 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 		model.addAttribute("lec_list", lec_list);
 		model.addAttribute("assign_list", assign_list);
 		return "sch/lecture";
+	}
+	
+	//-------enterprise update, insert
+	@RequestMapping(value="/enterprise/update")
+	public String updateEntG( int ent_id, Model model)
+	{
+		model.addAttribute("ent", myappService.getEntInfo(ent_id));
+		return "sch/update/update_ent";
+	}
+	
+	@RequestMapping(value="/enterprise/update", method=RequestMethod.POST)
+	public String updateEnt( int ent_id, Model model)
+	{
+		model.addAttribute("ent", myappService.getEntInfo(ent_id));
+		return "sch/update/update_ent";
+	}
+	
+	@RequestMapping(value="/enterprise/insert")
+	public String insertEntG(int ent_id, Model model)
+	{
+		model.addAttribute("ent", myappService.getEntInfo(ent_id));
+		return "sch/insert/insert_ent";
+	}
+	
+	
+	@RequestMapping(value="/enterprise/insert",method=RequestMethod.POST)
+	public String insertEnt(int ent_id, Model model)
+	{
+		model.addAttribute("ent", myappService.getEntInfo(ent_id));
+		return "sch/insert/insert_ent";
+	}
+	
+	//-----------lecture update, insert
+	@RequestMapping(value="/lecture/update")
+	public String updateLec(int ent_id, Model model)
+	{
+		model.addAttribute("lec", myappService.getLecInfo(ent_id));
+		return "sch/update/update_lec";
+	}
+	
+	@RequestMapping(value="/lecture/insert", method=RequestMethod.POST)
+	public String insertLec(@PathVariable int ent_id, Model model)
+	{
+		model.addAttribute("lec", myappService.getLecInfo(ent_id));
+		return "sch/insert/insert_lec";
+	}
+	
+	@RequestMapping(value="/lecture/delete", method=RequestMethod.GET)
+	public String deleteLecG(int lec_id, Model model)
+	{
+		model.addAttribute("lec",myappService.getLecInfo(lec_id) );
+		return "sch/delete/delete_lec";
+	}
+	
+	@RequestMapping(value="/lecture/delete", method=RequestMethod.POST)
+	public String deleteLec(int lec_id, Model model)
+	{
+		myappService.deleteLec(lec_id);
+		return "redirect:/lecture";
+	}
+
+	
+	//delete------------
+	@RequestMapping(value="/enterprise/delete", method=RequestMethod.GET)
+	public String deleteEntG(int ent_id, Model model)
+	{
+		model.addAttribute("ent",myappService.getEntInfo(ent_id));
+		return "sch/delete/delete_ent";
+	}
+	
+	@RequestMapping(value="/enterprise/delete", method=RequestMethod.POST)
+	public String deleteEnt(int ent_id, Model model)
+	{
+		myappService.deleteEnt(ent_id);
+		return "redirect:/enterprise";
 	}
 	
 }

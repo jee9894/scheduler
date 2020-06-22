@@ -8,25 +8,45 @@
 <title>강의 정보</title>
 </head>
 <body>
+<button onclick="location.href='./'">홈</button>
+<button>강의 정보</button>
+<button onclick="location.href='./enterprise'" >지원 기업</button>
+
+<p>강의 정보</p>
+<table border="1">
+<tr>
+	<th>강의ID</th>
+	<th>강의명</th>
+	<th>시작일</th>
+	<th>마감일</th>
+	
+</tr>
 <c:forEach var="lec" items="${lec_list}">
-<ul>
-	<li>-----강의 정보------</li>
-	<li>id: ${lec.lec_id}</li>
-	<li>강의명: ${lec.lec_name}</li>
-	<li>강의 시작일: ${lec.lec_start}</li>
-	<li>강의 종료일: ${lec.lec_end}</li>
-	 <% int cnt = 1;%>
-	<c:forEach var="assign" items="${assign_list}">
-		<c:if test = "${assign.lec_id == lec.lec_id}">
-			<li>------과제     <%= cnt%>-------</li>
-			<li>과제명: ${assign.asign_name}</li>
-			<li>과제 마감일: ${assign.asign_end}</li>
-			<%cnt++; %>
-		</c:if>
-	</c:forEach>
-</ul>
+<tr>
+	<td> ${lec.lec_id}</td>
+	<td> ${lec.lec_name}</td>
+	<td> ${lec.lec_start}</td>
+	<td> ${lec.lec_end}</td>
+	
+</tr>
+
 </c:forEach>
 
-
+</table border="1">
+<p>과제 정보</p>
+<table border="1">
+	<tr>
+		<th>강의ID</th>
+		<th>과제명</th>
+		<th>마감일</th>
+	</tr>
+<c:forEach var="assign" items="${assign_list}">
+	<tr>
+		<td> ${assign.lec_id}</td>
+		<td> ${assign.asign_name}</td>
+		<td> ${assign.asign_end}</td>
+	</tr>
+	</c:forEach>
+</table>
 </body>
 </html>

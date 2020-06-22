@@ -8,19 +8,34 @@
 <title>기업 정보</title>
 </head>
 <body>
-<p>---지원 기업 정보---</p>
-<c:forEach var="ent" items="${ent_list}">
-<ul>
-	<li>id: ${ent.ent_id}</li>
-	<li>기업명: ${ent.ent_name}</li>
-	<li>서류마감일: ${ent.paper_end}</li>
-	<li>1차인터뷰: ${ent.interview1}</li>
-	<li>2차인터뷰: ${ent.interview2}</li>
-	<li>3차인터뷰: ${ent.interview3}</li>
+<button onclick="location.href='./'">홈</button>
+<button onclick="location.href='./lecture'">강의 정보</button>
+<button>지원 기업</button>
+<a href="<c:url value='/enterprise/insert'/>">기업 추가 입력</a>
+<p>기업 정보</p>
+<table border="1">
 
-</ul>
+<tr>
+	<th>id</th>
+	<th>기업명</th>
+	<th>서류마감일</th>
+	<th>1차인터뷰</th>
+	<th>2차인터뷰</th>
+	<th>3차인터뷰</th>
+
+</tr>
+<c:forEach var="ent" items="${ent_list}">
+<tr>
+	<td>${ent.ent_id}</td>
+	<td>${ent.ent_name}</td>
+	<td> ${ent.paper_end}</td>
+	<td> ${ent.interview1}</td>
+	<td> ${ent.interview2}</td>
+	<td> ${ent.interview3}</td>
+
+</tr>
 	
 </c:forEach>
-
+</table>
 </body>
 </html>
