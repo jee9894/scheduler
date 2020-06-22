@@ -13,7 +13,7 @@
 <button onclick="location.href='./enterprise'">지원 기업</button>
 
 
-<h1>강의 정보</h1>
+<h1>강의 상세 정보</h1>
 <table border="1">
 <tr>
 	<th>강의 ID</th>
@@ -33,7 +33,7 @@
 </tr>
 </table>
 
-<a href="./lecture/update?lec_id=${lec.lec_id}">수정하기</a> 
+<a href="update?lec_id=${lec.lec_id}">수정하기</a> 
 <a href="delete?lec_id=${lec.lec_id}">삭제하기</a>
 </body>
 </html>

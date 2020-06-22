@@ -11,8 +11,9 @@
 <button onclick="location.href='./'">홈</button>
 <button>강의 정보</button>
 <button onclick="location.href='./enterprise'" >지원 기업</button>
-
+<a href="<c:url value='/lecture/insert'/>">강의 추가 입력</a>
 <p>강의 정보</p>
+<form>
 <table border="1">
 <tr>
 	<th>강의ID</th>
@@ -23,7 +24,7 @@
 </tr>
 <c:forEach var="lec" items="${lec_list}">
 <tr>
-	<td> ${lec.lec_id}</td>
+	<td><a href="<c:url value='/lecture/${lec.lec_id}'/>"> ${lec.lec_id}</a></td>
 	<td> ${lec.lec_name}</td>
 	<td> ${lec.lec_start}</td>
 	<td> ${lec.lec_end}</td>
@@ -32,7 +33,8 @@
 
 </c:forEach>
 
-</table border="1">
+</table>
+<border="1">
 <p>과제 정보</p>
 <table border="1">
 	<tr>
@@ -48,5 +50,7 @@
 	</tr>
 	</c:forEach>
 </table>
+
+</form>
 </body>
 </html>

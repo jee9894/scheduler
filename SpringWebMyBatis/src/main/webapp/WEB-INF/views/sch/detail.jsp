@@ -12,9 +12,9 @@
 <button onclick="location.href='./lecture'">강의 정보</button>
 <button onclick="location.href='./enterprise'">지원 기업</button>
 
-<form action="./enterprise/detail/{ent_id}">
+<form>
 <h1>기업 상세 정보</h1>
-<table border="1">
+<table border="1" >
 	<tr>
 		<th>기업 ID</th>
 		<td>${ent.ent_id}</td>
