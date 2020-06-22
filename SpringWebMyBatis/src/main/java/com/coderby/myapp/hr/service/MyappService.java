@@ -104,6 +104,21 @@ public class MyappService implements IMyappService {
 		return myappRepository.getListAssign();
 	}
 
+	@Override
+	public AssignVO getAssignInfo(int lec_id) {
+		return myappRepository.getAssignInfo(lec_id);
+	}
+
+	@Override
+	public EntVO getEntInfo(int ent_id) {
+		return myappRepository.getEntInfo(ent_id);
+	}
+
+	@Override
+	public LecVO getLecInfo(int lec_id) {
+		return myappRepository.getLecInfo(lec_id);
+	}
+
 
 
 }
