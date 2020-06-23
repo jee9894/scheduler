@@ -6,11 +6,21 @@
 <head>
 <meta charset="UTF-8">
 <title>CoderBy</title>
-
+<!-- <script>
+    $('.notnull').focusout(function () {
+        var ent_id = $("id").val();
+        var ent_name = $("name").val();
+ 
+        if ( ent_id == '' || ent_name=='' ) {
+        	$("#alert-danger").css('display', 'inline-block');
+        } 
+        
+    });
+</script> -->
 </head>
 <body>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+<!-- <span id="alert-danger" style="display: none; color: #d92742; font-weight: bold; ">필수 사항을 입력해주십시오.</span> -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	  		<a class="navbar-brand" href="./">취준생을 위한 스케줄러</a>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,19 +53,19 @@
 <table border="1">
 	<tr>
 		<th>강의 ID</th>
-		<td><input type="number" name="lec_id" required></td>
+		<td><input type="number" name="lec_id"  placeholder ="필수입력" required></td>
 	</tr>
 	<tr>
 		<th>강의명</th>
-		<td><input type="text" name="lec_name"  required></td>
+		<td><input type="text" name="lec_name"  placeholder ="필수입력" required></td>
 	</tr>
 	<tr>
 		<th>강의 시작일</th>
-		<td><input type="date" name="lec_start" ></td>
+		<td><input type="date"  name="lec_start" value="2999-12-31" ></td>
 	</tr>
 	<tr>
 		<th>강의 종료일</th>
-		<td><input type="date" name="lec_end" ></td>
+		<td><input type="date" name="lec_end" value="2999-12-31" ></td>
 	</tr>
 	<tr>
 		<td>

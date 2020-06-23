@@ -1,6 +1,4 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-
-<!-- jstl을 선언해줘야 밑에서 <c:url /> 활용 가능 -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -41,16 +39,34 @@
 		  	 
 		</nav>
 <h1>과제 정보 입력</h1>
+<form action="<c:url value='/assign/insert'/>" method="post">
 <table border="1">
-
-<tr>
-	<th>&nbsp;</th>
-	<td>
-		<input id = "submit" type="submit" value="저장"> 
-		<input type="reset" value="취소">
-	</td>
-</tr>
+	<tr>
+		<th>강의 ID</th>
+		<td>${lec_id}</td>
+	</tr>
+	<tr>
+		<th>강의명</th>
+		<td>${lec_name}</td>
+	</tr>
+	<tr>
+		<th>과제명</th>
+		<td><input type="text" name="asign_name"  placeholder ="필수입력" required></td>
+	</tr>
+	<tr>
+		<th>과제 마감일</th>
+		<td><input type="date" name="asign_end" value="2999-12-31" ></td>
+	</tr>
+	<tr>
+		<td>
+			<input type="hidden" name="lec_id" value = ${lec_id}>
+			<input id = "submit" type="submit" value="저장"> 
+			<input type="reset" value="취소">
+		</td>
+	</tr>
 </table>
+
+</form>
 
 
 </body>

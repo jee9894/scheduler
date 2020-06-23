@@ -147,10 +147,10 @@ public class MyappRepository implements IMyappRepository {
 	
 	@Override
 	public void insertAssign(AssignVO asign) {
-		jdbcTemplate.update("insert into lecture values(?,?,?)",
+		jdbcTemplate.update("insert into assignment values(?,?,?)",
 				asign.getLec_id(), 
-				asign.getAsign_name(),
-				asign.getAsign_end());
+				asign.getAsign_end(),
+				asign.getAsign_name());
 	}
 
 	@Override
@@ -208,6 +208,13 @@ public class MyappRepository implements IMyappRepository {
 	public LecVO getLecInfo(int lec_id) {
 		String sql = "select * from lecture where lec_id =?"	;
 		return jdbcTemplate.queryForObject(sql, new LecMapper(), lec_id);
+	}
+
+
+	@Override
+	public AssignVO getAssignInfo(int lec_id, String asign_name) {
+		String sql = "select * from assignment where lec_id =? and asign_name=?"	;
+		return jdbcTemplate.queryForObject(sql, new AssignMapper(), lec_id, asign_name);
 	}
 
 

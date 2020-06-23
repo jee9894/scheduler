@@ -42,7 +42,7 @@
 	<table border="1">
 	<tr>
 		<th>강의 ID</th>
-		<td><input type="number" name="lec_id" value= ${lec.lec_id} required></td>
+		<td>${lec.lec_id}</td>
 	</tr>
 	<tr>
 		<th>강의명</th>
@@ -56,8 +56,10 @@
 		<th>강의 종료일</th>
 		<td><input type="date" name="lec_end" value= ${lec.lec_end}></td>
 	</tr>
+	
 	<tr>
 		<td>
+			<input type="hidden" name="lec_id" value= ${lec.lec_id}>
 			<input type="submit" value="수정"> 
 			<input type="reset" value="취소">
 		</td>

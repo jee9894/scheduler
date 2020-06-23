@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>CoderBy</title>
-
 </head>
 <body>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -42,27 +41,27 @@
 <table border="1">
 	<tr>
 		<th>기업 ID</th>
-		<td><input type="number" name="ent_id"  required></td>
+		<td><input type="number" id ="id" name="ent_id" class="notnull"  placeholder ="필수입력" required></td>
 	</tr>
 	<tr>
 		<th>기업명</th>
-		<td><input type="text" name="ent_name"  required></td>
+		<td><input type="text" id="name" name="ent_name" class="notnull" placeholder ="필수입력"  required></td>
 	</tr>
 	<tr>
 		<th>서류마감일</th>
-		<td><input type="date" name="paper_end"></td>
+		<td><input type="date" name="paper_end" value="2999-12-31"></td>
 	</tr>
 	<tr>
 		<th>1차 면접일</th>
-		<td><input type="date" name="interview1" ></td>
+		<td><input type="date" name="interview1" value="2999-12-31" ></td>
 	</tr>
 	<tr>
 		<th>2차 면접일</th>
-		<td><input type="date" name="interview2"></td>
+		<td><input type="date" name="interview2" value="2999-12-31"></td>
 	</tr>
 	<tr>
 		<th>3차 면접일</th>
-		<td><input type="date" name="interview3"></td>
+		<td><input type="date" name="interview3" value="2999-12-31"></td>
 	</tr>
 
 	<tr>
