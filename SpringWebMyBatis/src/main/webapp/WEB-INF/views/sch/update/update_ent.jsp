@@ -50,19 +50,19 @@
 	</tr>
 	<tr>
 		<th>서류마감일</th>
-		<td><input type="text" name="paper_end" value= ${ent.paper_end}></td>
+		<td><input type="date" name="paper_end" value= ${ent.paper_end}></td>
 	</tr>
 	<tr>
 		<th>1차 면접일</th>
-		<td><input type="text" name="interview1" value= ${ent.interview1}></td>
+		<td><input type="date" name="interview1" value= ${ent.interview1}></td>
 	</tr>
 	<tr>
 		<th>2차 면접일</th>
-		<td><input type="text" name="interview2" value= ${ent.interview2}></td>
+		<td><input type="date" name="interview2" value= ${ent.interview2}></td>
 	</tr>
 	<tr>
 		<th>3차 면접일</th>
-		<td><input type="text" name="interview3" value= ${ent.interview3}></td>
+		<td><input type="date" name="interview3" value= ${ent.interview3}></td>
 	</tr>
 	<tr>
 		<td>
