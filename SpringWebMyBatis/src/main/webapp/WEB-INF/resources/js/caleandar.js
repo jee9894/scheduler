@@ -15,7 +15,7 @@ var Calendar = function(model, options, date) {
 	// Default Values
 	this.Options = {
 		Color : '',
-		LinkColor : '',
+		LinkColor : '#33BAFF',
 		NavShow : true,
 		NavVertical : false,
 		NavLocation : '',
@@ -277,6 +277,8 @@ function createCalendar(calendar, element, adjuster) {
 							|| calendar.Options.EventClick) {
 						var a = document.createElement('a');
 						a.setAttribute('href', '#');
+						a.style.color = "#FF0000";
+						a.style.fontSize = "10pt";
 						a.innerHTML += calendar.Model[n].Title;
 						if (calendar.Options.EventClick) {
 							var z = calendar.Model[n].Link;

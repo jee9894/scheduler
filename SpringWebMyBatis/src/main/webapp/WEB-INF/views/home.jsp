@@ -20,8 +20,10 @@
 
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="./">취준생을 위한 스케줄러</a>
+	<nav class="navbar navbar-expand-lg navbar-dark"
+		style="background-color: #87AFEB;">
+	<div class="container">
+		<a class="navbar-brand">취준 스케줄러</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -46,10 +48,10 @@
 			      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			    </form> -->
 		</div>
-
+	</div>
 	</nav>
   
-	<div id="caleandar"></div>
+	<div class="container" id="caleandar"></div>
 	
 
 </body> 
