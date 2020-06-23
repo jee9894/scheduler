@@ -1,0 +1,105 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+html,
+body {
+	height: 100%;
+	font-size: 15px;
+}
+
+.memo-area {
+	height: 100%;
+	background-color: #ccdcfb;
+	/* 
+		absolute 일 경우 html,body의 %를 100으로 설정 안해도 됨(block 설절 없어짐)
+		relative일 경우 block 성격을 유지함  
+	*/
+	position: relative;
+}
+
+.memo-area>button {
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	padding: 0 5px 0 20px;
+	font-weight: bold;
+	background: #9cd664 url('./images/add_memo.gif') no-repeat 4px 4px;
+	color: #275035;
+	border: 1px solid #5ca630;
+	height: 22px;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+
+
+
+
+.memo-note {
+	/*  
+		box-shadow: [h-offset] [v-offset] [blur] [spread] [color] (inset);
+		h-offset: 그림자의 좌우 위치 설정
+		v-offset: 그림자의 상하 위치 설정
+		blur: 그림자의 흐려짐 정도의 범위
+		spread: 그림자의 크기
+		color: 그림자 색상
+		inset: (optional) 요소 내부에 그림자 표현, 기본적으로 그림자는 요소 외부에 위치
+	*/
+	width: 160px;
+	height: 180px;
+	box-shadow: 4px 4px 4px -1px #666;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	border: 1px solid #cde;
+	overflow: hidden;
+	transition: .5s height;
+}
+
+.memo-note:active {
+	z-index: 1000;
+}
+
+.memo-bar {
+	height: 20px;
+    padding: 1px 3px 0 0;
+    background: rgb(252, 237, 131);
+    border-bottom: solid 1px #ffa;
+    text-align: right;
+}
+
+.memo-bar > .glyphicon {
+	margin-left: 3px;
+}
+
+.memo-edit {
+	height: 158px;
+	background-color: #ffff9d;
+}
+
+.memo-edit-area {
+	overflow: auto;
+    width: 100%;
+    border: 0;
+    background: transparent;
+    font-weight: bold;
+    min-height: 100%;
+    padding: 4px 8px;
+    resize: none;
+}
+
+.memo-edit-area:focus {
+	background: #fff;
+	box-shadow: 0 0 0 2px #0079bf inset;
+}
+
+.memo-note.h20 {
+	height: 20px;
+}
+
+.glyphicon.glyphicon-pushpin.choice {
+	transform: rotate(-45deg);
+	color: rgb(175, 18, 18);
+}

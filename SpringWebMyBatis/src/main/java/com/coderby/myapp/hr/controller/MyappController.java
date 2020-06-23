@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.coderby.myapp.hr.model.EntVO;
+import com.coderby.myapp.hr.model.LecVO;
 import com.coderby.myapp.hr.service.IMyappService;
 import com.coderby.myapp.hr.service.MyappService;
 @Controller
@@ -41,6 +42,7 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 		return "home";
 	}
 	
+	// ----------list 출력------------
 	@RequestMapping(value="/enterprise")
 	public String getAllEnt(Model model)
 	{
@@ -49,6 +51,9 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 		System.out.println(ent_list);
 		return "sch/enterprise";
 	}
+	
+
+	
 	@RequestMapping(value="/lecture")
 	public String getAllLec(Model model)
 	{
@@ -58,61 +63,84 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 		model.addAttribute("assign_list",assign_list);
 		return "sch/lecture";
 	}
+	
+	// ------하나만 출력------------
 	@RequestMapping(value="/lecture/{lec_id}")
 	public String getIdLec(@PathVariable int lec_id, Model model)
 	{
-		List<Map<String, Object>> lec_list = myappService.getListLec(lec_id);
-		List<Map<String, Object>> assign_list = myappService.getListAssign(lec_id);
-		model.addAttribute("lec_list", lec_list);
-		model.addAttribute("assign_list", assign_list);
-		return "sch/lecture";
+		LecVO lec = myappService.getLecInfo(lec_id);
+		model.addAttribute("lec", lec);
+		return "sch/detail/lec_detail";
 	}
+	
+	@RequestMapping(value="/enterprise/{ent_id}")
+	public String getIdEnt(@PathVariable int ent_id, Model model)
+	{
+		EntVO ent = myappService.getEntInfo(ent_id);
+		model.addAttribute("ent",ent);
+		return "sch/detail/ent_detail";
+	}
+	
 	
 	//-------enterprise update, insert
 	@RequestMapping(value="/enterprise/update")
-	public String updateEntG( int ent_id, Model model)
-	{
-		model.addAttribute("ent", myappService.getEntInfo(ent_id));
-		return "sch/update/update_ent";
-	}
-	
-	@RequestMapping(value="/enterprise/update", method=RequestMethod.POST)
 	public String updateEnt( int ent_id, Model model)
 	{
 		model.addAttribute("ent", myappService.getEntInfo(ent_id));
 		return "sch/update/update_ent";
 	}
 	
+	@RequestMapping(value="/enterprise/update", method=RequestMethod.POST)
+	public String updateEnt( EntVO ent, Model model)
+	{	
+		myappService.updateEnt(ent);
+		return "redirect:/enterprise";
+	}
+	
 	@RequestMapping(value="/enterprise/insert")
-	public String insertEntG(int ent_id, Model model)
+	public String insertEnt( Model model)
 	{
-		model.addAttribute("ent", myappService.getEntInfo(ent_id));
 		return "sch/insert/insert_ent";
 	}
 	
-	
 	@RequestMapping(value="/enterprise/insert",method=RequestMethod.POST)
-	public String insertEnt(int ent_id, Model model)
+	public String insertEnt(EntVO ent, Model model)
 	{
-		model.addAttribute("ent", myappService.getEntInfo(ent_id));
-		return "sch/insert/insert_ent";
+		myappService.insertEnt(ent);
+		return "redirect:/enterprise";
 	}
 	
 	//-----------lecture update, insert
 	@RequestMapping(value="/lecture/update")
-	public String updateLec(int ent_id, Model model)
+	public String updateLec(int lec_id, Model model)
 	{
-		model.addAttribute("lec", myappService.getLecInfo(ent_id));
+		model.addAttribute("lec", myappService.getLecInfo(lec_id));
 		return "sch/update/update_lec";
 	}
 	
-	@RequestMapping(value="/lecture/insert", method=RequestMethod.POST)
-	public String insertLec(@PathVariable int ent_id, Model model)
+	@RequestMapping(value="/lecture/update", method=RequestMethod.POST)
+	public String updateLec(LecVO lec, Model model)
 	{
-		model.addAttribute("lec", myappService.getLecInfo(ent_id));
+		myappService.updateLec(lec);
+		return "redirect:/lecture";
+	}
+	
+	@RequestMapping(value="/lecture/insert")
+	public String insertLec( Model model)
+	{
 		return "sch/insert/insert_lec";
 	}
 	
+
+	@RequestMapping(value="/lecture/insert", method=RequestMethod.POST)
+	public String insertLec(LecVO lec, Model model)
+	{
+		myappService.insertLec(lec);
+		return "redirect:/lecture";
+	}
+
+	
+	//----------delete------------
 	@RequestMapping(value="/lecture/delete", method=RequestMethod.GET)
 	public String deleteLecG(int lec_id, Model model)
 	{
@@ -127,8 +155,7 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 		return "redirect:/lecture";
 	}
 
-	
-	//delete------------
+
 	@RequestMapping(value="/enterprise/delete", method=RequestMethod.GET)
 	public String deleteEntG(int ent_id, Model model)
 	{
