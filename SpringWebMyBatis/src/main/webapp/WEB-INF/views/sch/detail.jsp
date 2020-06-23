@@ -10,7 +10,8 @@
 <title>상세 정보</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+ <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #87AFEB;">
+
 	  		<a class="navbar-brand" href="./">취준생을 위한 스케줄러</a>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			    <span class="navbar-toggler-icon"></span>
@@ -40,29 +41,29 @@
 
 <form>
 <h1>기업 상세 정보</h1>
-<table border="1" >
+<table class="table table-hover" >
 	<tr>
-		<th>기업 ID</th>
+		<th scope="col">기업 ID</th scope="col">
 		<td>${ent.ent_id}</td>
 	</tr>
 	<tr>
-		<th>기업명</th>
+		<th scope="col">기업명</th scope="col">
 		<td>${ent.ent_name}</td>
 	</tr>
 	<tr>
-		<th>서류마감일</th>
+		<th scope="col">서류마감일</th scope="col">
 		<td>${ent.paper_end}</td>
 	</tr>
 	<tr>
-		<th>1차 면접일</th>
+		<th scope="col">1차 면접일</th scope="col">
 		<td>${ent.interview1}</td>
 	</tr>
 	<tr>
-		<th>2차 면접일</th>
+		<th scope="col">2차 면접일</th scope="col">
 		<td>${ent.interview2}</td>
 	</tr>
 	<tr>
-		<th>3차 면접일</th>
+		<th scope="col">3차 면접일</th scope="col">
 		<td>${ent.interview3}</td>
 	</tr>
 	

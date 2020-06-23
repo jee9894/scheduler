@@ -33,15 +33,26 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 	@Autowired
 	IMyappService myappService;
 
+	/*
+	 * @RequestMapping(value = "/", method = RequestMethod.GET) public String
+	 * home(Locale locale, Model model) {
+	 * logger.info("Welcome home! The client locale is {}.", locale); Date date =
+	 * new Date(); DateFormat dateFormat =
+	 * DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+	 * model.addAttribute("key",myappService.getEntCount());
+	 * System.out.println(myappService.getEntCount()); String formattedDate =
+	 * dateFormat.format(date); model.addAttribute("serverTime", formattedDate );
+	 * return "home"; }
+	 */
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		model.addAttribute("key",myappService.getEntCount());
-		System.out.println(myappService.getEntCount());
-		String formattedDate = dateFormat.format(date);
-		model.addAttribute("serverTime", formattedDate );
+	public String home( Model model) {
+		List<Map<String, Object>> ent = myappService.getListEnt();
+		List<Map<String, Object>> assign = myappService.getListAssign();
+		System.out.println(assign);
+		model.addAttribute("ent", ent);
+		model.addAttribute("num", "hihi");
+		model.addAttribute("assign", assign);
 		return "home";
 	}
 	
