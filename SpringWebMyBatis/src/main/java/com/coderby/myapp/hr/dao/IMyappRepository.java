@@ -19,6 +19,7 @@ public interface IMyappRepository {
 	List<Map<String, Object>> getListAssign();
 	
 	AssignVO getAssignInfo(int lec_id);
+	AssignVO getAssignInfo(int lec_id, String asign_name);
 	EntVO getEntInfo(int ent_id);
 	LecVO getLecInfo(int lec_id);
 	
@@ -33,5 +34,6 @@ public interface IMyappRepository {
 	void deleteEnt(int ent_id); 	//기업 삭제
 	void deleteLec(int lec_id);		//과목 삭제
 	void deleteAssign(int lec_id, String asign_name);	//과제 삭제
+	
 	
 }

@@ -119,6 +119,11 @@ public class MyappService implements IMyappService {
 		return myappRepository.getLecInfo(lec_id);
 	}
 
+	@Override
+	public AssignVO getAssignInfo(int lec_id, String asign_name) {
+		return myappRepository.getAssignInfo(lec_id, asign_name);
+	}
+
 
 
 }

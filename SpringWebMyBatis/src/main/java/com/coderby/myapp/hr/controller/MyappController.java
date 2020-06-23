@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.coderby.myapp.hr.model.AssignVO;
 import com.coderby.myapp.hr.model.EntVO;
 import com.coderby.myapp.hr.model.LecVO;
 import com.coderby.myapp.hr.service.IMyappService;
@@ -139,6 +142,23 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 		return "redirect:/lecture";
 	}
 
+	//-----------------assignment insert
+	
+	@RequestMapping(value="/assign/insert")
+	public String insertAssign(int lec_id,String lec_name, Model model)
+	{
+		return "sch/insert/insert_assign";
+	}
+	
+
+	@RequestMapping(value="/assign/insert", method=RequestMethod.POST)
+	public String inserAssign(AssignVO as, Model model)
+	{
+
+		myappService.insertAssign(as);
+		return "redirect:/lecture";
+	}
+
 	
 	//----------delete------------
 	@RequestMapping(value="/lecture/delete", method=RequestMethod.GET)
@@ -152,6 +172,20 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 	public String deleteLec(int lec_id, Model model)
 	{
 		myappService.deleteLec(lec_id);
+		return "redirect:/lecture";
+	}
+
+	@RequestMapping(value="/assign/delete", method=RequestMethod.GET)
+	public String deleteAssignG(int lec_id, String asign_name, Model model)
+	{
+		model.addAttribute("assign",myappService.getAssignInfo(lec_id, asign_name) );
+		return "sch/delete/delete_as";
+	}
+	
+	@RequestMapping(value="/assign/delete", method=RequestMethod.POST)
+	public String deleteAssign(int lec_id, String asign_name, Model model)
+	{ 
+		myappService.deleteAssign(lec_id, asign_name);
 		return "redirect:/lecture";
 	}
 

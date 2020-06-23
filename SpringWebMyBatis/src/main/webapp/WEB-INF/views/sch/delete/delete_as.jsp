@@ -1,11 +1,10 @@
-<%@ page contentType="text/html; charset=UTF-8" trimDirectiveWhitespaces="true"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>CoderBy</title>
-
+<title>상세 정보</title>
 </head>
 <body>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -37,40 +36,31 @@
 		  	</div>
 		  	 
 		</nav>
-<h1>기업 정보 수정</h1>
-<form action="<c:url value='/enterprise/update'/>" method="post">
-	<table border="1">
+
+<form action="<c:url value='/assign/delete'/>" method="post">
+<h1>과제 상세 정보</h1>
+<table border="1">
 	<tr>
-		<th>기업 ID</th>
-		<td>${ent.ent_id} </td>
+		<th>강의 ID</th>
+		<td>${assgin.lec_id}</td>
 	</tr>
 	<tr>
-		<th>기업명</th>
-		<td><input type="text" name="ent_name" value= ${ent.ent_name}></td>
+		<th>과제명</th>
+		<td>${assign.asign_name}</td>
 	</tr>
+
 	<tr>
-		<th>서류마감일</th>
-		<td><input type="text" name="paper_end" value= ${ent.paper_end}></td>
-	</tr>
-	<tr>
-		<th>1차 면접일</th>
-		<td><input type="text" name="interview1" value= ${ent.interview1}></td>
-	</tr>
-	<tr>
-		<th>2차 면접일</th>
-		<td><input type="text" name="interview2" value= ${ent.interview2}></td>
-	</tr>
-	<tr>
-		<th>3차 면접일</th>
-		<td><input type="text" name="interview3" value= ${ent.interview3}></td>
+		<th>과제 종료일</th>
+		<td>${assign.asign_end}</td>
 	</tr>
 	<tr>
 		<td>
-		<input type="hidden" name="ent_id" value= ${ent.ent_id}>
-			<input type="submit" value="수정"> 
-			<input type="reset" value="취소">
+			<input type="hidden" name="lec_id" value="${assign.lec_id}">
+			<input type="hidden" name="asign_name" value="${assign.asign_name}">
+			<input type="submit" value="삭제">
 		</td>
 	</tr>
+
 	</table>
 </form>
 </body>
