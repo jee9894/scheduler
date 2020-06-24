@@ -6,7 +6,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>기업 상세 정보</title>
+<title>기업 정보 삭제</title>
+<style>
+	#tmp{
+	    margin-left: 50%;
+	    color: #81898E;
+	}
+</style>
 </head>
 <body>
 	<link rel="stylesheet"
@@ -16,9 +22,9 @@
 
 	<nav class="navbar navbar-expand-lg navbar-dark"
 		style="background-color: #87AFEB;">
-	<div class="container">
+	<div class="container"><a class="navbar-brand"><img src="../images/내일로고.jpg" height="40"
+		width="70"></a>
 
-		<a class="navbar-brand">취준생을 위한 스케줄러</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -28,12 +34,12 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="../">홈
+				<li class="nav-item "><a class="nav-link" href="../">홈
 						<span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link" href="../lecture">수강
 						정보</a></li>
-				<li class="nav-item"><a class="nav-link" href="../enterprise">지원
+				<li class="nav-item active"><a class="nav-link" href="../enterprise">지원
 						기업</a></li>
 
 
@@ -46,7 +52,17 @@
 	</div>
 
 	</nav>
+	
+		<nav class="navbar navbar-expand-lg navbar-dark"
+		style="background-color: #E3EEFC;">
+		<div class="container">
+		
+		<span id="tmp" class="navbar-item">기업 정보 삭제</span>
+		</div>
+		</nav>
+		
 	<form action="<c:url value='/enterprise/delete'/>" method="post">
+		<br>
 		<div class="container">
 
 			<table class="table table-hover">
@@ -55,28 +71,28 @@
 					<col width="85%" />
 
 				</colgroup>
-				<tr>
+				<%-- <tr>
 					<th scope="col">기업 ID</th>
 					<td>${ent.ent_id}</td>
-				</tr>
+				</tr> --%>
 				<tr>
-					<th>기업명</th>
+					<th scope ="col">기업명</th>
 					<td>${ent.ent_name}</td>
 				</tr>
 				<tr>
-					<th>서류마감일</th>
+					<th scope ="col">서류마감일</th>
 					<td>${ent.paper_end}</td>
 				</tr>
 				<tr>
-					<th>1차 면접일</th>
+					<th scope ="col">1차 면접일</th>
 					<td>${ent.interview1}</td>
 				</tr>
 				<tr>
-					<th>2차 면접일</th>
+					<th scope ="col">2차 면접일</th>
 					<td>${ent.interview2}</td>
 				</tr>
 				<tr>
-					<th>3차 면접일</th>
+					<th scope ="col">3차 면접일</th>
 					<td>${ent.interview3}</td>
 				</tr>
 				<tr>
@@ -84,6 +100,8 @@
 						<!-- hidden으로 값넘겨주기 --> <input type="hidden" name="ent_id"
 						value="${ent.ent_id}"> <br> <input
 						class="btn btn-outline-info btn-sm" type="submit" value="삭제">
+						<button class="btn btn-outline-info btn-sm" 
+						href="../enterprise">취소</button>
 
 					</td>
 				</tr>

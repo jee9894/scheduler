@@ -126,8 +126,7 @@ public class MyappRepository implements IMyappRepository {
 
 	@Override
 	public void insertEnt(EntVO ent)  {
-		jdbcTemplate.update("insert into enterprise values(?,?,?,?,?,?)",
-				ent.getEnt_id(), 
+		jdbcTemplate.update("insert into enterprise values(ent_id.NEXTVAL,?,?,?,?,?)", 
 				ent.getEnt_name(),
 				ent.getPaper_end(),
 				ent.getInterview1(),
@@ -138,8 +137,7 @@ public class MyappRepository implements IMyappRepository {
 
 	@Override
 	public void insertLec(LecVO lec) {
-		jdbcTemplate.update("insert into lecture values(?,?,?,?)",
-				lec.getLec_id(), 
+		jdbcTemplate.update("insert into lecture values(lec_id.NEXTVAL,?,?,?)",
 				lec.getLec_name(),
 				lec.getLec_start(),
 				lec.getLec_end());

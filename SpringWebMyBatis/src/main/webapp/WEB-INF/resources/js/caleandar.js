@@ -1,11 +1,3 @@
-/*
-  Author: Jack Ducasse;
-  Version: 0.1.0;
-  (◠‿◠✿)
- */
-//var list ='<c:out value="${assign}"/>';
-//console.log(list.val());
-
 var events = [];
 var settings = {
 
@@ -390,7 +382,7 @@ var element = document.getElementById('caleandar');
 
 window.addEventListener("load", function() {
 	console.log(result);
-	var event_name = ['면접일', '서류 마감', '과제 마감'];
+	var event_name = ['면접일', ' 서류마감', ' 마감'];
 	for (i = 0; i < result.length; i++) {
 /*		console.log(result[i].ASIGN_NAME);
 		console.log(result[i].ASIGN_END);*/
@@ -399,11 +391,25 @@ window.addEventListener("load", function() {
 	    var yyyy = end_ymd.substr(0,4);
 	    var mm = end_ymd.substr(5,2)-1;
 	    var dd = end_ymd.substr(8,2); 
-		events.push({
-			'Date' : new Date(yyyy,mm,dd),
-			'Title' : result[i].ASIGN_NAME + event_name[2],
-			'Link':'./lecture/'+lec_id
-		})
+	    var check = result[i].ASIGN_NAME.substr(-2,2);
+	    if(check=='시험' || check=='고사' || check=='퀴즈')
+	    {
+	    	events.push({
+				'Date' : new Date(yyyy,mm,dd),
+				'Title' : result[i].ASIGN_NAME,
+				'Link':'./lecture/'+lec_id
+			})
+	    	
+	    }
+	    else
+	    {
+	    	events.push({
+				'Date' : new Date(yyyy,mm,dd),
+				'Title' : result[i].ASIGN_NAME + event_name[2],
+				'Link':'./lecture/'+lec_id
+			})
+	    }
+		
 		};
 		
 		for (i = 0; i < result2.length; i++) {
@@ -429,7 +435,7 @@ window.addEventListener("load", function() {
 				var dd = end_ymd.substr(8,2); 
 				events.push({
 					'Date' : new Date(yyyy,mm,dd),
-					'Title' : result2[i].ENT_NAME+'1차'+event_name[0],
+					'Title' : result2[i].ENT_NAME+' 1차'+event_name[0],
 					'Link':'./enterprise/'+ent_id
 				})
 			}
@@ -441,7 +447,7 @@ window.addEventListener("load", function() {
 				var dd = end_ymd.substr(8,2); 
 				events.push({
 					'Date' : new Date(yyyy,mm,dd),
-					'Title' : result2[i].ENT_NAME+'2차'+event_name[0],
+					'Title' : result2[i].ENT_NAME+' 2차'+event_name[0],
 					'Link':'./enterprise/'+ent_id
 				})
 			}
@@ -453,7 +459,7 @@ window.addEventListener("load", function() {
 				var dd = end_ymd.substr(8,2); 
 				events.push({
 					'Date' : new Date(yyyy,mm,dd),
-					'Title' : result2[i].ENT_NAME+'3차'+event_name[0],
+					'Title' : result2[i].ENT_NAME+' 3차'+event_name[0],
 					'Link': './enterprise/'+ent_id
 				})
 			}

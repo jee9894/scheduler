@@ -3,7 +3,7 @@
   height:10%;
 }
 .cld-main a{
-	font-size: 15px;
+	font-size: 13.5px;
 	width: 100%;
   	position: relative;
 	height:80%;
@@ -81,10 +81,10 @@
       text-align: left;
     }
       .cld-title{
-        font-size: 15px;
+        font-size: 12px;
         display: block;
         margin: 0;
-        color : #33BAFF;
+        /* color : #33BAFF; */
         font-weight: normal;
       }
       .cld-day:hover{

@@ -5,6 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>기업 정보 입력</title>
+<style>
+	#tmp{
+	    margin-left: 50%;
+	    color: #81898E;
+	}
+</style>
 </head>
 <body>
 	<link rel="stylesheet"
@@ -16,19 +22,20 @@
 		style="background-color: #87AFEB;">
 		<div class="container">
 
-			<a class="navbar-brand">기업 정보 입력</a>
+			<a class="navbar-brand"><img src="../images/내일로고.jpg" height="40"
+		width="70"></a>
 			<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			    <span class="navbar-toggler-icon"></span>
 			  </button>
 	 -->
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><a class="nav-link" href="../">홈
+					<li class="nav-item "><a class="nav-link" href="../">홈
 							<span class="sr-only">(current)</span>
 					</a></li>
-					<li class="nav-item"><a class="nav-link" href="../lecture">수강
+					<li class="nav-item "><a class="nav-link" href="../lecture">수강
 							정보</a></li>
-					<li class="nav-item"><a class="nav-link" href="../enterprise">지원
+					<li class="nav-item active"><a class="nav-link" href="../enterprise">지원
 							기업</a></li>
 
 
@@ -40,6 +47,13 @@
 			</div>
 		</div>
 	</nav>
+	<nav class="navbar navbar-expand-lg navbar-dark"
+		style="background-color: #E3EEFC;">
+		<div class="container">
+		
+		<span id="tmp" class="navbar-item">기업 정보 입력</span>
+		</div>
+		</nav>
 	<br>
 
 	<form action="<c:url value='/enterprise/insert'/>" method="post">
@@ -51,11 +65,11 @@
 					<col width="15%" />
 					<col width="85%" />
 				</colgroup>
-				<tr>
+				<!-- <tr>
 					<th scope="col">기업 ID</th>
 					<td><input type="number" id="id" name="ent_id" class="notnull"
 						placeholder="필수입력" required></td>
-				</tr>
+				</tr> -->
 				<tr>
 					<th scope="col">기업명</th>
 					<td><input type="text" id="name" name="ent_name"
@@ -80,8 +94,8 @@
 
 				<tr>
 					<td><br> <input class="btn btn-outline-info btn-sm"
-						id="submit" type="submit" value="저장"> <input
-						class="btn btn-outline-info btn-sm" type="reset" value="취소">
+						id="submit" type="submit" value="저장"> <button class="btn btn-outline-info btn-sm" 
+						href="../enterprise">취소</button>
 					</td>
 				</tr>
 

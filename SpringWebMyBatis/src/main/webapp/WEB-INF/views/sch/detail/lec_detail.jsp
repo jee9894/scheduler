@@ -6,7 +6,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>상세 정보</title>
+<title>강의 상세 정보</title>
+<style>
+	#tmp{
+	    margin-left: 50%;
+	    color: #81898E;
+	}
+</style>
 </head>
 <body>
 	<link rel="stylesheet"
@@ -17,8 +23,9 @@
 	<nav class="navbar navbar-expand-lg navbar-dark"
 		style="background-color: #87AFEB;">
 	<div class="container">
-
-		<a class="navbar-brand">강의 상세 정보</a>
+		<a class="navbar-brand"><img src="../images/내일로고.jpg" height="40"
+				width="70"></a>
+		
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -28,11 +35,11 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="../">홈
-						<span class="sr-only">(current)</span>
+				<li class="nav-item "><a class="nav-link" href="../">홈
+						
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="../lecture">수강
-						정보</a></li>
+				<li class="nav-item active"><a class="nav-link" href="../lecture">수강
+						정보<span class="sr-only">(current)</span></a></li>
 				<li class="nav-item"><a class="nav-link" href="../enterprise">지원
 						기업</a></li>
 
@@ -45,6 +52,13 @@
 		</div>
 	</div>
 	</nav>
+<nav class="navbar navbar-expand-lg navbar-dark"
+		style="background-color: #E3EEFC;">
+		<div class="container">
+		
+		<span id="tmp" class="navbar-item">강의 상세 정보</span>
+		</div>
+		</nav>
 
 	<br>
 	<div class="container">
@@ -55,10 +69,10 @@
 				<col width="85%" />
 
 			</colgroup>
-			<tr>
+	<%-- 		<tr>
 				<th scope="col">강의 ID</th>
 				<td>${lec.lec_id}</td>
-			</tr>
+			</tr> --%>
 			<tr>
 				<th scope="col">강의명</th>
 				<td>${lec.lec_name}</td>

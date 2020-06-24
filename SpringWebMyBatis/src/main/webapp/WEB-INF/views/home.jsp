@@ -12,7 +12,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="UTF-8">
-<title>취준스케줄러</title>
+<title>내 일 스케줄러</title>
 <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed"
 	rel="stylesheet">
 <!--     <link rel="stylesheet" href="css/demo.css"/> -->
@@ -20,10 +20,10 @@
 
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark"
-		style="background-color: #87AFEB;">
-	<div class="container">
-		<a class="navbar-brand">취준 스케줄러</a>
+	<nav class="navbar navbar-expand-lg navbar-dark"	style="background-color: #87AFEB;"><div class="container">
+		
+		<div class="container"><a class="navbar-brand"><img src="images/내일로고.jpg" height="40"
+		width="70"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -33,7 +33,7 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="./">홈
+				<li class="nav-item active"><a class="nav-link ml-5" href="./" >홈
 						<span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link" href="./lecture">수강
@@ -50,7 +50,7 @@
 		</div>
 	</div>
 	</nav>
-  
+  	
 	<div class="container" id="caleandar"></div>
 	
 
