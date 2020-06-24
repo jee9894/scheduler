@@ -6,7 +6,12 @@
 <head>
 
 <meta charset="UTF-8">
-
+<style>
+	#tmp{
+	    margin-left: 50%;
+	    color: #81898E;
+	}
+</style>
 <title>강의 정보 입력</title>
 <!-- <script>
     $('.notnull').focusout(function () {
@@ -30,7 +35,8 @@
 		style="background-color: #87AFEB;">
 		<div class="container">
 
-			<a class="navbar-brand">강의 정보 입력</a>
+			<a class="navbar-brand"><img src="../images/내일로고.jpg" height="40"
+		width="70"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -58,6 +64,13 @@
 		</div>
 
 	</nav>
+	<nav class="navbar navbar-expand-lg navbar-dark"
+		style="background-color: #E3EEFC;">
+		<div class="container">
+		
+		<span id="tmp" class="navbar-item">강의 정보 입력</span>
+		</div>
+		</nav>
 	<br>
 	<div class="container">
 
@@ -88,8 +101,8 @@
 				</tr>
 				<tr>
 					<td><br> <input class="btn btn-outline-info btn-sm"
-						id="submit" type="submit" value="저장"> <input
-						class="btn btn-outline-info btn-sm" type="reset" value="취소">
+						id="submit" type="submit" value="저장"> <button class="btn btn-outline-info btn-sm" 
+						href="../lecture">취소</button>
 					</td>
 				</tr>
 			</table>

@@ -7,6 +7,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기업 정보 삭제</title>
+<style>
+	#tmp{
+	    margin-left: 50%;
+	    color: #81898E;
+	}
+</style>
 </head>
 <body>
 	<link rel="stylesheet"
@@ -16,9 +22,9 @@
 
 	<nav class="navbar navbar-expand-lg navbar-dark"
 		style="background-color: #87AFEB;">
-	<div class="container">
+	<div class="container"><a class="navbar-brand"><img src="../images/내일로고.jpg" height="40"
+		width="70"></a>
 
-		<a class="navbar-brand">기업 정보 삭제</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -46,6 +52,15 @@
 	</div>
 
 	</nav>
+	
+		<nav class="navbar navbar-expand-lg navbar-dark"
+		style="background-color: #E3EEFC;">
+		<div class="container">
+		
+		<span id="tmp" class="navbar-item">기업 정보 삭제</span>
+		</div>
+		</nav>
+		
 	<form action="<c:url value='/enterprise/delete'/>" method="post">
 		<br>
 		<div class="container">

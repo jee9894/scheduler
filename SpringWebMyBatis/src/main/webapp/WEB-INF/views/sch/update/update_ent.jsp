@@ -6,6 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>기업 정보 수정</title>
+<style>
+	#tmp{
+	    margin-left: 50%;
+	    color: #81898E;
+	}
+</style>
 
 </head>
 <body>
@@ -18,7 +24,8 @@
 		style="background-color: #87AFEB;">
 		<div class="container">
 
-			<a class="navbar-brand">기업 정보 수정</a>
+			<a class="navbar-brand"><img src="../images/내일로고.jpg" height="40"
+		width="70"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -44,7 +51,13 @@
 			</div>
 		</div>
 	</nav>
-
+<nav class="navbar navbar-expand-lg navbar-dark"
+		style="background-color: #E3EEFC;">
+		<div class="container">
+		
+		<span id="tmp" class="navbar-item">기업 정보 수정</span>
+		</div>
+		</nav>
 	<form action="<c:url value='/enterprise/update'/>" method="post">
 		<br>
 		<div class="container">

@@ -12,13 +12,19 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>강의 정보</title>
-
+<style>
+	#tmp{
+	    margin-left: 50%;
+	    color: #81898E;
+	}
+</style>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark"
 		style="background-color: #87AFEB;">
 	<div class="container">
-		<a class="navbar-brand">강의 정보</a>
+		<a class="navbar-brand"><img src="../images/내일로고.jpg" height="40"
+		width="70"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -44,6 +50,13 @@
 		</div>
 	</div>
 	</nav>
+	<nav class="navbar navbar-expand-lg navbar-dark"
+		style="background-color: #E3EEFC;">
+		<div class="container">
+		
+		<span id="tmp" class="navbar-item">강의 정보</span>
+		</div>
+		</nav>
 	<br>
 
 	<div class="container">
