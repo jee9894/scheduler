@@ -100,11 +100,12 @@
 					<td><input type="hidden" name="ent_id" value=${ent.ent_id}>
 						<br> <input class="btn btn-outline-info btn-sm" type="submit"
 						value="수정"> 
+						</form>
 						<button class="btn btn-outline-info btn-sm" 
 						href="../enterprise">취소</button></td>
 				</tr>
 			</table>
-	</form>
+	
 	</div>
 </body>
 </html>

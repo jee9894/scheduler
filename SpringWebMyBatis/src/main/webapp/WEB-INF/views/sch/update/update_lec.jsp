@@ -59,7 +59,7 @@
 		<span id="tmp" class="navbar-item">강의 정보 수정</span>
 		</div>
 		</nav>
-	<form action="<c:url value='/lecture/update'/>" method="post">
+	<form action="<c:url value='/lecture/update'/>" method="post" name= "form">
 		<div class="container">
 
 			<table class="table table-hover">
@@ -88,11 +88,14 @@
 				<tr>
 					<td><input type="hidden" name="lec_id" value=${lec.lec_id}>
 						<br> <input class="btn btn-outline-info btn-sm" type="submit"
-						value="수정"> <button class="btn btn-outline-info btn-sm" 
-						href="../lecture">취소</button></td>
+						value="수정"> 
+						</form><button class="btn btn-outline-info btn-sm" 
+						href="../lecture">취소</button>
+						<!-- <input type="submit" value="취소" onclick="javascript: form.action='../lecture';"/> -->
+						</td>
 				</tr>
 			</table>
 		</div>
-	</form>
+	
 </body>
 </html>
