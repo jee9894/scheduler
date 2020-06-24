@@ -7,10 +7,10 @@
 
 <meta charset="UTF-8">
 <style>
-	#tmp{
-	    margin-left: 50%;
-	    color: #81898E;
-	}
+#tmp {
+	margin-left: 50%;
+	color: #81898E;
+}
 </style>
 <title>강의 정보 입력</title>
 <!-- <script>
@@ -36,7 +36,7 @@
 		<div class="container">
 
 			<a class="navbar-brand"><img src="../images/내일로고.jpg" height="40"
-		width="70"></a>
+				width="70"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -46,11 +46,11 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item "><a class="nav-link" href="../">홈
-							<span class="sr-only">(current)</span>
+					<li class="nav-item "><a class="nav-link" href="../">홈 <span
+							class="sr-only">(current)</span>
 					</a></li>
-					<li class="nav-item active"><a class="nav-link" href="../lecture">수강
-							정보</a></li>
+					<li class="nav-item active"><a class="nav-link"
+						href="../lecture">수강 정보</a></li>
 					<li class="nav-item"><a class="nav-link" href="../enterprise">지원
 							기업</a></li>
 
@@ -67,10 +67,10 @@
 	<nav class="navbar navbar-expand-lg navbar-dark"
 		style="background-color: #E3EEFC;">
 		<div class="container">
-		
-		<span id="tmp" class="navbar-item">강의 정보 입력</span>
+
+			<span id="tmp" class="navbar-item">강의 정보 입력</span>
 		</div>
-		</nav>
+	</nav>
 	<br>
 	<div class="container">
 
@@ -99,15 +99,14 @@
 					<th scope="col">강의 종료일</th>
 					<td><input type="date" name="lec_end" value="2999-12-31"></td>
 				</tr>
-				<tr>
-					<td><br> <input class="btn btn-outline-info btn-sm"
-						id="submit" type="submit" value="저장"> <button class="btn btn-outline-info btn-sm" 
-						href="../lecture">취소</button>
-					</td>
-				</tr>
 			</table>
+			<br> 
+			<input class="btn btn-outline-info btn-sm" id="submit"
+				type="submit" value="저장">
+		</form>
+		<a class="btn btn-outline-info btn-sm" href="../lecture">취소</a>
+
 	</div>
 
-	</form>
 </body>
 </html>

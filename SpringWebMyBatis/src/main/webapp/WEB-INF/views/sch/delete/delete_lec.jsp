@@ -86,16 +86,17 @@
 					<th scope="col">강의 종료일</th>
 					<td>${lec.lec_end}</td>
 				</tr>
-				<tr>
-					<td><br> <input type="hidden" name="lec_id"
-						value="${lec.lec_id}"> <input
-						class="btn btn-outline-info btn-sm" type="submit" value="삭제">
-						<button class="btn btn-outline-info btn-sm" 
-						href="../lecture">취소</button>
-					</td>
-				</tr>
+				</table>
+				<br> 
+				
+				<input type="hidden" name="lec_id"
+						value="${lec.lec_id}"> 
+				<input class="btn btn-outline-info btn-sm" type="submit" value="삭제">
+						<a class="btn btn-outline-info btn-sm" 
+						href="../lecture">취소</a>
+					
 
-			</table>
+			
 		</div>
 	</form>
 </body>
