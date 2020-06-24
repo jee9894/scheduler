@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>상세 정보</title>
+<title>강의 상세 정보</title>
 </head>
 <body>
 	<link rel="stylesheet"
@@ -28,11 +28,11 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="../">홈
-						<span class="sr-only">(current)</span>
+				<li class="nav-item "><a class="nav-link" href="../">홈
+						
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="../lecture">수강
-						정보</a></li>
+				<li class="nav-item active"><a class="nav-link" href="../lecture">수강
+						정보<span class="sr-only">(current)</span></a></li>
 				<li class="nav-item"><a class="nav-link" href="../enterprise">지원
 						기업</a></li>
 
@@ -55,10 +55,10 @@
 				<col width="85%" />
 
 			</colgroup>
-			<tr>
+	<%-- 		<tr>
 				<th scope="col">강의 ID</th>
 				<td>${lec.lec_id}</td>
-			</tr>
+			</tr> --%>
 			<tr>
 				<th scope="col">강의명</th>
 				<td>${lec.lec_name}</td>

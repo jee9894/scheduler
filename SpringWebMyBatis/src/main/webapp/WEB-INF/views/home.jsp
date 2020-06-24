@@ -12,7 +12,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="UTF-8">
-<title>취준스케줄러</title>
+<title>취준 스케줄러</title>
 <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed"
 	rel="stylesheet">
 <!--     <link rel="stylesheet" href="css/demo.css"/> -->
@@ -50,7 +50,7 @@
 		</div>
 	</div>
 	</nav>
-  
+  	
 	<div class="container" id="caleandar"></div>
 	
 

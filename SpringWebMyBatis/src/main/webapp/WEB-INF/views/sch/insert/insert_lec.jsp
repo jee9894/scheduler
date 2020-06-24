@@ -40,10 +40,10 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><a class="nav-link" href="../">홈
+					<li class="nav-item "><a class="nav-link" href="../">홈
 							<span class="sr-only">(current)</span>
 					</a></li>
-					<li class="nav-item"><a class="nav-link" href="../lecture">수강
+					<li class="nav-item active"><a class="nav-link" href="../lecture">수강
 							정보</a></li>
 					<li class="nav-item"><a class="nav-link" href="../enterprise">지원
 							기업</a></li>
@@ -68,11 +68,11 @@
 					<col width="85%" />
 
 				</colgroup>
-				<tr>
+				<!-- <tr>
 					<th scope="col">강의 ID</th>
 					<td><input type="number" name="lec_id" placeholder="필수입력"
 						required></td>
-				</tr>
+				</tr> -->
 				<tr>
 					<th scope="col">강의명</th>
 					<td><input type="text" name="lec_name" placeholder="필수입력"

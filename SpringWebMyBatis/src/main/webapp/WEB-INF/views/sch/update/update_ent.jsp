@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>기업 정보 수정 페이지</title>
+<title>기업 정보 수정</title>
 
 </head>
 <body>
@@ -27,12 +27,12 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><a class="nav-link" href="../">홈
+					<li class="nav-item "><a class="nav-link" href="../">홈
 							<span class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item"><a class="nav-link" href="../lecture">수강
 							정보</a></li>
-					<li class="nav-item"><a class="nav-link" href="../enterprise">지원
+					<li class="nav-item active"><a class="nav-link" href="../enterprise">지원
 							기업</a></li>
 
 
@@ -86,8 +86,9 @@
 
 					<td><input type="hidden" name="ent_id" value=${ent.ent_id}>
 						<br> <input class="btn btn-outline-info btn-sm" type="submit"
-						value="수정"> <input class="btn btn-outline-info btn-sm"
-						type="reset" value="취소"></td>
+						value="수정"> 
+						<button class="btn btn-outline-info btn-sm" 
+						href="../enterprise">취소</button></td>
 				</tr>
 			</table>
 	</form>

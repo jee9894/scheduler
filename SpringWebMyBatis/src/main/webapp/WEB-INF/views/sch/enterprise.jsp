@@ -29,12 +29,12 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item "><a class="nav-link" href="./">홈
-						<span class="sr-only">(current)</span>
+					
 				</a></li>
 				<li class="nav-item "><a class="nav-link" href="./lecture">수강
 						정보</a></li>
 				<li class="nav-item active"><a class="nav-link" href="./enterprise">지원
-						기업</a></li>
+						기업<span class="sr-only">(current)</span></a></li>
 
 
 			</ul>
@@ -61,7 +61,7 @@
 
 
 				<tr>
-					<th scope="col">id</th>
+					<!-- <th scope="col">id</th> -->
 					<th scope="col">기업명</th>
 					<th scope="col">서류마감일</th>
 					<th scope="col">1차인터뷰</th>
@@ -71,7 +71,7 @@
 				</tr>
 				<c:forEach var="ent" items="${ent_list}">
 					<tr>
-						<td>${ent.ent_id}</td>
+						<%-- <td>${ent.ent_id}</td> --%>
 						<td><a href="<c:url value='/enterprise/${ent.ent_id}'/>">${ent.ent_name}</a></td>
 						<td>${ent.paper_end}</td>
 						<td>${ent.interview1}</td>

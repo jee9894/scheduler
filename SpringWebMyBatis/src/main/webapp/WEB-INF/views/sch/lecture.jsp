@@ -12,10 +12,9 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>강의 정보</title>
+
 </head>
 <body>
-
-
 	<nav class="navbar navbar-expand-lg navbar-dark"
 		style="background-color: #87AFEB;">
 	<div class="container">
@@ -30,13 +29,12 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item "><a class="nav-link" href="./">홈
-						<span class="sr-only">(current)</span>
+						<!-- <span class="sr-only">(current)</span> -->
 				</a></li>
 				<li class="nav-item active"><a class="nav-link" href="./lecture">수강
 						정보</a></li>
 				<li class="nav-item"><a class="nav-link" href="./enterprise">지원
 						기업</a></li>
-
 
 			</ul>
 			<!-- <form class="form-inline my-2 my-lg-0">
@@ -58,26 +56,25 @@
 
 
 		<table class="table table-hover">
-
-
 			<tr>
-				<th scope="col">강의ID</th>
-				<th scope="col">강의명</th>
-				<th scope="col">시작일</th>
-				<th scope="col">마감일</th>
+				<!-- <th scope="col">강의ID</th> -->
+				<th scope="col">강의명</th scope="col">
+				<th scope="col">시작일</th scope="col">
+				<th scope="col">마감일</th scope="col">
+				<th scope="col">일정추가</th scope="col">
 
 			</tr>
 			<c:forEach var="lec" items="${lec_list}">
 				<form action="<c:url value='/assign/insert'/>" method="post">
 					<tr>
-						<td>${lec.lec_id}</td>
+						<%-- <td>${lec.lec_id}</td> --%>
 						<td><a href="<c:url value='/lecture/${lec.lec_id}'/>">${lec.lec_name}</a></td>
 						<td>${lec.lec_start}</td>
 						<td>${lec.lec_end}</td>
 						<td><input type="hidden" name="lec_id" value="${lec.lec_id}">
-							<input type="text" name="asign_name" placeholder="과제명"> <input
+							<input type="text" name="asign_name" placeholder="일정"> <input
 							type="date" name="asign_end" value="2999-12-31"> <input
-							class="btn btn-outline-info btn-sm" type="submit" value="과제 추가">
+							class="btn btn-outline-info btn-sm" type="submit" value="일정 추가">
 						</td>
 					</tr>
 				</form>
@@ -86,23 +83,35 @@
 		</table>
 		<br>
 		<border="1">
-		<p>과제 정보</p>
+		<p>추가 일정 정보</p>
 		<table class="table table-hover">
 
 			<tr>
-				<th scope="col">강의ID</th scope="col">
-				<th scope="col">과제명</th scope="col">
+				<!-- <th scope="col">강의ID</th scope="col"> -->
+				<th scope="col">강의명</th scope="col">
+				<th scope="col">일정</th scope="col">
 				<th scope="col">마감일</th scope="col">
+				<th scope="col"></th scope="col">
+				
 			</tr>
 
 			<c:forEach var="assign" items="${assign_list}">
 				<form action="<c:url value='/assign/delete'/>" method="post">
 					<tr>
-						<td>${assign.lec_id}</td>
+						<%-- <td>${assign.lec_id}</td> --%>
+						
+						<c:set var="loop_flag" value="false" />
+						<c:forEach var="lec" items="${lec_list}">
+							<c:if test="${lec.lec_id == assign.lec_id}">
+								<td>${lec.lec_name}</td>
+								<c:set var="loop_flag" value="true" />
+							</c:if>
+						</c:forEach>
+						
 						<td>${assign.asign_name}</td>
 						<td>${assign.asign_end}</td>
 						<td><input type="hidden" name="lec_id"
-							value="${assign.lec_id}"> <input type="hideen"
+							value="${assign.lec_id}"> <input type="hidden"
 							name="asign_name" value="${assign.asign_name}"> <input
 							class="btn btn-outline-info btn-sm" type="submit" value="삭제">
 							<%-- <a href="delete?lec_id=${assign.lec_id} asign_name=${assign.asign_name}">삭제</a> --%>
