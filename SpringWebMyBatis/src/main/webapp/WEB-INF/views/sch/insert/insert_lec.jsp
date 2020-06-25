@@ -72,9 +72,11 @@
 		</div>
 	</nav>
 	<br>
-	<div class="container">
+
 
 		<form action="<c:url value='/lecture/insert'/>" method="post">
+				<div class="container">
+			
 			<table class="table table-hover">
 				<colgroup>
 					<col width="15%" />
