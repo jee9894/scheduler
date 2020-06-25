@@ -1,0 +1,97 @@
+--DB생성(cmd)
+--sqlplus "/as sysdba"
+--create user sch identified by sch; 
+--grant connect, resource, dba to sch; 
+
+--테이블 생성
+create table enterprise(
+ent_id number primary key, 
+ent_name varchar(255) not null,
+paper_end date,
+interview1 date,
+interview2 date,
+interview3 date
+);
+create table lecture(
+lec_id number primary key,
+lec_name varchar(255) not null,
+lec_start date,
+lec_end date
+);
+
+create table assignment(
+lec_id int not null,
+asign_end date,
+asign_name varchar(255) not null,
+constraints lec_fk foreign key(lec_id) references lecture(lec_id) on delete cascade
+);
+
+--시퀀스 생성
+
+CREATE SEQUENCE ent_id START WITH 1 
+INCREMENT BY 1 MAXVALUE 10000 NOCACHE NOCYCLE;
+
+CREATE SEQUENCE lec_id START WITH 1 
+INCREMENT BY 1 MAXVALUE 10000 NOCACHE NOCYCLE;
+commit;
+
+--데이터 생성
+insert into enterprise(ent_id,ent_name,paper_end,interview1,interview2,interview3)
+values(
+ent_id.nextval,
+'kakao',
+to_date('20200624 09:00:00','YYYY-MM-DD HH24:MI:SS'),
+to_date('20200626 10:00:00','YYYY-MM-DD HH24:MI:SS'),
+to_date('20200630 12:00:00','YYYY-MM-DD HH24:MI:SS'),
+to_date('20200710 15:00:00','YYYY-MM-DD HH24:MI:SS'));
+
+insert into enterprise(ent_id,ent_name,paper_end,interview1,interview2,interview3)
+values(ent_id.nextval,'우아한 형제들',
+to_date('20200710 12:00:00','YYYY-MM-DD HH24:MI:SS'),
+to_date('20200715 14:00:00','YYYY-MM-DD HH24:MI:SS'),
+to_date('20200718 15:00:00','YYYY-MM-DD HH24:MI:SS'),
+to_date('20200722 16:00:00','YYYY-MM-DD HH24:MI:SS'));
+
+
+insert into enterprise(ent_id,ent_name,paper_end,interview1,interview2,interview3)
+values(ent_id.nextval,'Naver',
+to_date('20200731 08:30:00','YYYY-MM-DD HH24:MI:SS'),
+to_date('20200803 11:30:00','YYYY-MM-DD HH24:MI:SS'),
+to_date('20200807 13:30:00','YYYY-MM-DD HH24:MI:SS'),
+to_date('20200810 15:00:00','YYYY-MM-DD HH24:MI:SS'));
+
+
+insert into enterprise(ent_id,ent_name,paper_end,interview1,interview2,interview3)
+values(ent_id.nextval,
+'구글 코리아',
+to_date('20200601 09:00:00','YYYY-MM-DD HH24:MI:SS'),
+to_date('20200603 10:00:00','YYYY-MM-DD HH24:MI:SS'),
+to_date('20200605 12:00:00','YYYY-MM-DD HH24:MI:SS'),
+to_date('20200607 15:00:00','YYYY-MM-DD HH24:MI:SS'));
+
+
+insert into lecture(lec_id,lec_name,lec_start,lec_end)
+values(lec_id.nextval,'실전 스프링 데이터 JPA',
+to_date('20200609','YYYY-MM-DD'),
+to_date('20200618','YYYY-MM-DD'));
+
+
+insert into lecture(lec_id,lec_name,lec_start,lec_end)
+values(lec_id.nextval,'파이썬 머신러닝 완전정복',
+to_date('20200730','YYYY-MM-DD'),
+to_date('20200830','YYYY-MM-DD'));
+
+
+insert into lecture(lec_id,lec_name,lec_start,lec_end)
+values(lec_id.nextval,'iOS 모바일 앱 모의해킹',
+to_date('20200910','YYYY-MM-DD'),
+to_date('20201010','YYYY-MM-DD'));
+
+
+insert into lecture(lec_id,lec_name,lec_start,lec_end)
+values(lec_id.nextval,'DataScience와 AI의 개념',
+to_date('20200610','YYYY-MM-DD'),
+to_date('20200620','YYYY-MM-DD'));
+
+
+commit;
