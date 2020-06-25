@@ -95,18 +95,17 @@
 					<th scope ="col">3차 면접일</th>
 					<td>${ent.interview3}</td>
 				</tr>
-				<tr>
-					<td>
+				</table>
+				
 						<!-- hidden으로 값넘겨주기 --> <input type="hidden" name="ent_id"
 						value="${ent.ent_id}"> <br> <input
 						class="btn btn-outline-info btn-sm" type="submit" value="삭제">
-						<button class="btn btn-outline-info btn-sm" 
-						href="../enterprise">취소</button>
+						<a class="btn btn-outline-info btn-sm" 
+						href="../enterprise">취소</a>
 
-					</td>
-				</tr>
+					
 
-			</table>
+			
 
 		</div>
 	</form>

@@ -61,17 +61,18 @@
 		</nav>
 	<form action="<c:url value='/lecture/update'/>" method="post" name= "form">
 		<div class="container">
-
+		<br>
 			<table class="table table-hover">
 				<colgroup>
 					<col width="15%" />
 					<col width="85%" />
 				</colgroup>
+				
 
-				<tr>
+			<%-- 	<tr>
 					<th scope="col">강의 ID</th>
 					<td>${lec.lec_id}</td>
-				</tr>
+				</tr> --%>
 				<tr>
 					<th scope="col">강의명</th>
 					<td><input type="text" name="lec_name" value=${lec.lec_name}></td>
@@ -84,17 +85,15 @@
 					<th scope="col">강의 종료일</th>
 					<td><input type="date" name="lec_end" value=${lec.lec_end}></td>
 				</tr>
-
-				<tr>
-					<td><input type="hidden" name="lec_id" value=${lec.lec_id}>
+</table>
+				<input type="hidden" name="lec_id" value=${lec.lec_id}>
 						<br> <input class="btn btn-outline-info btn-sm" type="submit"
 						value="수정"> 
-						</form><button class="btn btn-outline-info btn-sm" 
-						href="../lecture">취소</button>
+						</form><a class="btn btn-outline-info btn-sm" 
+						href="../lecture">취소</a>
 						<!-- <input type="submit" value="취소" onclick="javascript: form.action='../lecture';"/> -->
-						</td>
-				</tr>
-			</table>
+					
+			
 		</div>
 	
 </body>

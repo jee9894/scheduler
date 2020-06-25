@@ -68,10 +68,10 @@
 					<col width="85%" />
 				</colgroup>
 
-				<tr>
+			<%-- 	<tr>
 					<th scope="col">기업 ID</th>
 					<td>${ent.ent_id}</td>
-				</tr>
+				</tr> --%>
 				<tr>
 					<th scope="col">기업명</th>
 					<td><input type="text" name="ent_name" value=${ent.ent_name}></td>
@@ -95,16 +95,18 @@
 					<td><input type="date" name="interview3"
 						value=${ent.interview3}></td>
 				</tr>
-				<tr>
-
-					<td><input type="hidden" name="ent_id" value=${ent.ent_id}>
+				</table>
+			
+					<input type="hidden" name="ent_id" value=${ent.ent_id}>
 						<br> <input class="btn btn-outline-info btn-sm" type="submit"
 						value="수정"> 
 						</form>
-						<button class="btn btn-outline-info btn-sm" 
-						href="../enterprise">취소</button></td>
-				</tr>
-			</table>
+						
+						
+						<a class="btn btn-outline-info btn-sm" 
+						href="../enterprise">취소</a>
+				
+			
 	
 	</div>
 </body>
