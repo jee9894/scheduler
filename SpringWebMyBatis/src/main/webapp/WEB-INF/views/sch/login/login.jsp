@@ -56,7 +56,7 @@
 		<!-- <span class="align-middle">middle</span>
 	
 	 -->
-		<a class="navbar-brand"><img src="images/내일로고.jpg" height="80"
+		<a class="navbar-brand"><img src="/images/내일로고.jpg" height="80"
 			width="140"></a>
 
 

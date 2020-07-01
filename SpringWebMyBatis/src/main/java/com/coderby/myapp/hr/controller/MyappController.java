@@ -55,7 +55,7 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 		return "home";
 	}
 	
-	// ----------list ���------------
+	// ----------list 占쏙옙占�------------
 	@RequestMapping(value="/enterprise")
 	public String getAllEnt(Model model)
 	{
@@ -77,7 +77,7 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 		return "sch/lecture";
 	}
 	
-	// ------�ϳ��� ���------------
+	// ------占싹놂옙占쏙옙 占쏙옙占�------------
 	@RequestMapping(value="/lecture/{lec_id}")
 	public String getIdLec(@PathVariable int lec_id, Model model)
 	{
@@ -179,8 +179,8 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 	@RequestMapping(value="/mypage", method=RequestMethod.GET)
 	public String GetMemberInfo(String mem_id, String mem_pw,Model model)
 	{
-		//model.addAttribute("mem", myappService.getMemberInfo(mem_id, mem_pw));
-		model.addAttribute("mem", myappService.getMemberInfo("hello", "hi"));
+		model.addAttribute("mem", myappService.getMemberInfo(mem_id, mem_pw));
+		//model.addAttribute("mem", myappService.getMemberInfo("hello", "hi"));
 		return "sch/mypage/mypage";
 	}
 	
