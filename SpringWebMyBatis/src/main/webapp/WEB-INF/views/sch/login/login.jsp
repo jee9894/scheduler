@@ -68,20 +68,20 @@
 			<br>
 			<br>
 
-			<form>
+			<form action="/member/login" method="post">
 				<table class="table table-hover" style="width: 400px;">
 					<colgroup>
 						<col width="40%" />
 						<col width="60%" />
 					<tr scope="col">
 						<td id="title">아이디</td>
-						<td><input type="text" name="id" maxlength="20"> <!--  <input type="button" class="btn btn-outline-info btn-sm" value="중복확인" >     -->
+						<td><input type="text" name="mem_id" maxlength="20"> <!--  <input type="button" class="btn btn-outline-info btn-sm" value="중복확인" >     -->
 						</td>
 					</tr>
 
 					<tr>
 						<td id="title">비밀번호</td>
-						<td><input type="password" name="password" maxlength="15">
+						<td><input type="password" name="mem_pw" maxlength="15">
 						</td>
 					</tr>
 
@@ -92,7 +92,7 @@
 				<button type="submit" class="btn btn-outline-info btn-sm"
 					value="로그인">로그인</button>
 				<button type="button" class="btn btn-outline-info btn-sm"
-					value="회원가입">회원가입</button>
+					value="회원가입" onclick="location.href='register' ">회원가입</button>
 				<br> </br>
 			</form>
 			

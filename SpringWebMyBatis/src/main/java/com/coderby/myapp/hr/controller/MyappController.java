@@ -291,17 +291,32 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 		if(login == null) {
 			session.setAttribute("member", null);
 			rttr.addFlashAttribute("msg", false);
+			return "redirect:/member/login";
 		}else {
 			session.setAttribute("member", login);
+			return "redirect:/";
 		}
 		
-		return "redirect:/member/login";
 	}
 	
 	@RequestMapping(value = "/member/logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) throws Exception{
 		
 		session.invalidate();
+		
+		return "redirect:/member/login";
+	}
+	
+	@RequestMapping(value = "/member/register", method = RequestMethod.GET)
+	public String register() throws Exception{
+		
+		return "sch/login/register";
+	}
+	
+	@RequestMapping(value = "/member/register", method = RequestMethod.POST)
+	public String registerMember(MemberVO member) throws Exception{
+		
+		myappService.insertMember(member);
 		
 		return "redirect:/member/login";
 	}
