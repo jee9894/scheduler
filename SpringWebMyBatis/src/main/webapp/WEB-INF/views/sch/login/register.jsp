@@ -47,31 +47,31 @@ btt {
 		<div class="container"
 			style="background-color: WHITE; width: 450px; height: 400px; border-radius: 20px 20px 20px 20px;">
 			<b>
-				<form>
+				<form action="/member/register" method="post">
 					<div id="wrap">
 						<br> <b><font size="6" color="gray"> 회원가입</font></b> <br>
 						<br> <br>
 						<table class="table table-hover" style="width: 400px;">
 							<tr scope="col">
 								<td id="title">아이디</td>
-								<td><input type="text" name="id" maxlength="20"></td>
+								<td><input type="text" name="mem_id" maxlength="20"></td>
 							</tr>
 
 							<tr>
 								<td id="title">비밀번호</td>
-								<td><input type="password" name="password" maxlength="15">
+								<td><input type="password" name="mem_pw" maxlength="15">
 								</td>
 							</tr>
 
 							<tr>
 								<td id="title">비밀번호 확인</td>
-								<td><input type="password" name="password" maxlength="15">
+								<td><input type="password" name="" maxlength="15">
 								</td>
 							</tr>
 
 							<tr>
 								<td id="title">이름</td>
-								<td><input type="text" name="name" maxlength="40"></td>
+								<td><input type="text" name="mem_name" maxlength="40"></td>
 							</tr>
 
 						</table>
