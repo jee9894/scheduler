@@ -1,12 +1,10 @@
 package com.coderby.myapp.hr.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,13 +14,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.coderby.myapp.hr.model.AssignVO;
 import com.coderby.myapp.hr.model.EntVO;
 import com.coderby.myapp.hr.model.LecVO;
 import com.coderby.myapp.hr.model.MemberVO;
 import com.coderby.myapp.hr.service.IMyappService;
-import com.coderby.myapp.hr.service.MyappService;
 @Controller
 public class MyappController {
 
@@ -57,7 +55,7 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 		return "home";
 	}
 	
-	// ----------list Ãâ·Â------------
+	// ----------list ï¿½ï¿½ï¿½------------
 	@RequestMapping(value="/enterprise")
 	public String getAllEnt(Model model)
 	{
@@ -79,7 +77,7 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 		return "sch/lecture";
 	}
 	
-	// ------ÇÏ³ª¸¸ Ãâ·Â------------
+	// ------ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½------------
 	@RequestMapping(value="/lecture/{lec_id}")
 	public String getIdLec(@PathVariable int lec_id, Model model)
 	{
@@ -263,6 +261,49 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 		int seq = myappService.getSeqFromEnt(ent_id);
 		myappService.deleteEnt(ent_id,seq);
 		return "redirect:/enterprise";
+	}
+	
+	//----------Login------------
+	
+	@RequestMapping(value="/member/login")
+	public String login(Model model)
+	{
+		return "sch/login/login";
+	}
+	
+	@RequestMapping(value = "/member/login", method = RequestMethod.POST)
+	public String login(MemberVO member, HttpServletRequest req, RedirectAttributes rttr) throws Exception{
+		logger.info("post login");
+		HttpSession session = req.getSession();
+		
+		String mem_id = member.getMem_id();
+		String mem_pw = member.getMem_pw();
+
+		List<Map<String, Object>> list = myappService.getListMember();
+		MemberVO login = null;
+		
+		for (Map<String, Object> map : list) {
+			if(map.get("mem_id").equals(mem_id)) {
+				login = myappService.getMemberInfo(mem_id, mem_pw);				
+			}
+		}
+		
+		if(login == null) {
+			session.setAttribute("member", null);
+			rttr.addFlashAttribute("msg", false);
+		}else {
+			session.setAttribute("member", login);
+		}
+		
+		return "redirect:/member/login";
+	}
+	
+	@RequestMapping(value = "/member/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) throws Exception{
+		
+		session.invalidate();
+		
+		return "redirect:/member/login";
 	}
 	
 }
