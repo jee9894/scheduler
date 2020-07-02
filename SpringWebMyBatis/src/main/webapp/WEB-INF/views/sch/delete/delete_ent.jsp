@@ -13,13 +13,13 @@
 	    color: #81898E;
 	}
 </style>
-</head>
-<body>
-	<link rel="stylesheet"
+<link rel="stylesheet"
 		href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
 		crossorigin="anonymous">
-
+</head>
+<body>
+	
 	<nav class="navbar navbar-expand-lg navbar-dark"
 		style="background-color: #87AFEB;">
 	<div class="container"><a class="navbar-brand"><img src="../images/내일로고.jpg" height="40"
@@ -34,7 +34,7 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item "><a class="nav-link" href="../">홈
+				<li class="nav-item "><a class="nav-link" href="../home">홈
 						<span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link" href="../lecture">수강
@@ -98,8 +98,8 @@
 				</table>
 				
 						<!-- hidden으로 값넘겨주기 --> <input type="hidden" name="ent_id"
-						value="${ent.ent_id}"> <br> <input
-						class="btn btn-outline-info btn-sm" type="submit" value="삭제">
+						value="${ent.ent_id}"> <br> 
+						<input class="btn btn-outline-info btn-sm" type="submit" value="삭제">
 						<a class="btn btn-outline-info btn-sm" 
 						href="../enterprise">취소</a>
 

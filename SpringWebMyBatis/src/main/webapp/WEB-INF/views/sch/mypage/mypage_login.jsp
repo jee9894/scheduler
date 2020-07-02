@@ -12,13 +12,13 @@
 	color: #81898E;
 }
 </style>
-
-</head>
-<body>
-	<link rel="stylesheet"
+<link rel="stylesheet"
 		href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
 		crossorigin="anonymous">
+</head>
+<body>
+	
 
 	<nav class="navbar navbar-expand-lg navbar-dark"
 		style="background-color: #87AFEB;">
@@ -34,7 +34,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item "><a class="nav-link" href="../">홈 <span
+					<li class="nav-item "><a class="nav-link" href="../home">홈 <span
 							class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item"><a class="nav-link" href="../lecture">수강
@@ -70,19 +70,18 @@
 
 			<tr>
 				<th scope="col">아이디</th>
-				<td><input type="text" id="tmp_id"></td>
+				<td><input type="text" id="tmp_id" maxlength="20"></td>
 			</tr>
 			<tr>
 				<th scope="col">패스워드</th>
-				<td><input type="text" id="tmp_pw"></td>
+				<td><input type="password" id="tmp_pw" maxlength="20"></td>
 			</tr>
 
 		</table>
 		<br> <input type="hidden" id="mem_id" value=${mem.mem_id}>
-		<input type="hidden" id="mem_pw" value=${mem.mem_pw}> <a
-			href="update?mem_id=${mem.mem_id}&mem_pw=${mem.mem_pw}"
-			class="btn btn-outline-info btn-sm" onclick="return check()">확인</a> <a
-			class="btn btn-outline-info btn-sm" href="../">뒤로</a>
+		<input type="hidden" id="mem_pw" value=${mem.mem_pw}> 
+		<a href="../mypage/update" class="btn btn-outline-info btn-sm" onclick="return check()">확인</a> <a
+			class="btn btn-outline-info btn-sm" href="../mypage">뒤로</a>
 
 
 
@@ -98,7 +97,7 @@
 		if (id == t_id && pw == t_pw) {
 			return true;
 		} else {
-			alert(t_id);
+			alert("다시 입력하십시오");
 			return false;
 		}
 

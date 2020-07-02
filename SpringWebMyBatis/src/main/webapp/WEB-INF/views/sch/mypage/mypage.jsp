@@ -12,19 +12,17 @@
 	    color: #81898E;
 	}
 </style>
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-	<link rel="stylesheet"
-		href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-		crossorigin="anonymous">
+	
 
 	<nav class="navbar navbar-expand-lg navbar-dark"
 		style="background-color: #87AFEB;">
 		<div class="container">
 
-			<a class="navbar-brand"><img src="images/내일로고.jpg" height="40"
+			<a class="navbar-brand"><img src="/images/내일로고.jpg" height="40"
 		width="70"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent"
@@ -34,7 +32,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item "><a class="nav-link" href="../">홈
+					<li class="nav-item "><a class="nav-link" href="../home">홈
 							<span class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item"><a class="nav-link" href="../lecture">수강
@@ -58,7 +56,7 @@
 		<span id="tmp" class="navbar-item">마이페이지</span>
 		</div>
 		</nav>
-		<form action="<c:url value='/mypage/login'/>" method='get' >
+		<form action="<c:url value='/mypage/login'/>" method='post' >
 		<br>
 		<div class="container">
 
@@ -76,17 +74,17 @@
 					<th scope="col">아이디</th>
 					<td>${mem.mem_id}</td>
 				</tr>
-				
+					
 				</table>
 				<br>
-					<input type="hidden" name="mem_id" value=${mem.mem_id}>
+					<!-- <input type="hidden" name="mem_id" value=${mem.mem_id}>
 					<input type="hidden" name="mem_name" value=${mem.mem_name}>
 					<input type="hidden" name="mem_pw" value=${mem.mem_pw}>
-					<input type="hidden" name="seq_id" value=${mem.seq_id}>
+					<input type="hidden" name="seq_id" value=${mem.seq_id}> -->
 						<br>  <input type ="submit" class="btn btn-outline-info btn-sm" value ="회원 정보 수정">
 					</form>
 						<a class="btn btn-outline-info btn-sm" 
-						href="../">뒤로</a>
+						href="../home">뒤로</a>
 				
 			
 	

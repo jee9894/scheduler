@@ -28,12 +28,6 @@ public class MyappService implements IMyappService {
 		return myappRepository.getLecCount();
 	}
 
-
-	@Override
-	public List<Map<String, Object>> getListLec() {
-		return myappRepository.getListLec();
-	}
-
 	@Override
 	public void updateEnt(EntVO ent) {
 		myappRepository.updateEnt(ent);
@@ -79,30 +73,11 @@ public class MyappService implements IMyappService {
 	}
 
 	@Override
-	public void deleteAssign(int lec_id,String asign_name) {
-		myappRepository.deleteAssign(lec_id, asign_name);
+	public void deleteAssign(int lec_id,String asign_name, int seq_id) {
+		myappRepository.deleteAssign(lec_id, asign_name, seq_id);
 		
 	}
 
-	@Override
-	public List<Map<String, Object>> getListEnt() {
-		return myappRepository.getListEnt();
-	}
-
-	@Override
-	public List<Map<String, Object>> getListAssign(int lec_id,int seq_id) {
-		return myappRepository.getListAssign(lec_id,seq_id);
-	}
-
-	@Override
-	public List<Map<String, Object>> getListLec(int lec_id,int seq_id) {
-		return myappRepository.getListLec(lec_id,seq_id);
-	}
-
-	@Override
-	public List<Map<String, Object>> getListAssign() {
-		return myappRepository.getListAssign();
-	}
 
 	@Override
 	public AssignVO getAssignInfo(int lec_id) {
@@ -120,8 +95,8 @@ public class MyappService implements IMyappService {
 	}
 
 	@Override
-	public AssignVO getAssignInfo(int lec_id, String asign_name) {
-		return myappRepository.getAssignInfo(lec_id, asign_name);
+	public AssignVO getAssignInfo(int lec_id, String asign_name,int seq_id) {
+		return myappRepository.getAssignInfo(lec_id, asign_name,seq_id);
 	}
 
 	@Override
@@ -178,6 +153,35 @@ public class MyappService implements IMyappService {
 	@Override
 	public MemberVO getMemberInfo(String mem_id, String mem_pw) {
 		return myappRepository.getMemberInfo(mem_id, mem_pw);
+	}
+
+	@Override
+	public List<Map<String, Object>> getListLec(int seq_id) {
+		// TODO Auto-generated method stub
+		return myappRepository.getListLec(seq_id);
+	}
+
+	@Override
+	public List<Map<String, Object>> getListEnt(int seq_id) {
+		// TODO Auto-generated method stub
+		return myappRepository.getListEnt(seq_id);
+	}
+
+	@Override
+	public List<Map<String, Object>> getListAssign(int seq_id) {
+		// TODO Auto-generated method stub
+		return myappRepository.getListAssignS(seq_id);
+	}
+
+	@Override
+	public void deleteMember(int seq_id) {
+		myappRepository.deleteMember(seq_id);	
+	}
+
+	@Override
+	public int getSeqNextVal() {
+		// TODO Auto-generated method stub
+		return myappRepository.getSeqNextVal();
 	}
 
 	

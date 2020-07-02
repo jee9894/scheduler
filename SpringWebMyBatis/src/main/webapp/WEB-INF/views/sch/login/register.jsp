@@ -25,7 +25,6 @@
 	margin-right: auto;
 	text-align: left;
 }
-
 btt {
 	width: 85px;
 	float: center;
@@ -65,7 +64,7 @@ btt {
 
 							<tr>
 								<td id="title">비밀번호 확인</td>
-								<td><input type="password" name="" maxlength="15">
+								<td><input type="password" name="password" maxlength="15">
 								</td>
 							</tr>
 
@@ -75,9 +74,9 @@ btt {
 							</tr>
 
 						</table>
-
-						<btt> <input type="submit"
-							class="btn btn-outline-info btn-sm" value="가입" /> </btt>
+						<input type="submit" 
+							class="btn btn-outline-info btn-sm" value="가입" />
+						 
 				</form>
 		</div>
 
