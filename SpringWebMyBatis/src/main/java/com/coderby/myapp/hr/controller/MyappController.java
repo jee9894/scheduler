@@ -43,41 +43,44 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 	 * dateFormat.format(date); model.addAttribute("serverTime", formattedDate );
 	 * return "home"; }
 	 */
-	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home( Model model) {
-		List<Map<String, Object>> ent = myappService.getListEnt();
-		List<Map<String, Object>> assign = myappService.getListAssign();
+		
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String home(Model model, HttpSession session) {
+		MemberVO mem = (MemberVO) session.getAttribute("member");
+		List<Map<String,Object>> lec = myappService.getListLec(mem.getSeq_id());
+		List<Map<String, Object>> ent = myappService.getListEnt(mem.getSeq_id());
+		List<Map<String, Object>> assign = myappService.getListAssign(mem.getSeq_id());
 		System.out.println(assign);
 		model.addAttribute("ent", ent);
-		model.addAttribute("num", "hihi");
 		model.addAttribute("assign", assign);
+		System.out.println(mem.getMem_id());
 		return "home";
 	}
 	
 	// ----------list 占쏙옙占�------------
 	@RequestMapping(value="/enterprise")
-	public String getAllEnt(Model model)
+	public String getAllEnt(Model model,HttpSession session)
 	{
-		List<Map<String, Object>>  ent_list = myappService.getListEnt();
+		MemberVO mem = (MemberVO) session.getAttribute("member");
+		List<Map<String, Object>>  ent_list = myappService.getListEnt(mem.getSeq_id());
 		model.addAttribute("ent_list", ent_list); 
-		System.out.println(ent_list);
 		return "sch/enterprise";
 	}
 	
 
 	
 	@RequestMapping(value="/lecture")
-	public String getAllLec(Model model)
+	public String getAllLec(Model model,HttpSession session)
 	{
-		List<Map<String, Object>> lec_list = myappService.getListLec();
+		MemberVO mem = (MemberVO) session.getAttribute("member");
+		List<Map<String, Object>> lec_list = myappService.getListLec(mem.getSeq_id());
 		model.addAttribute("lec_list", lec_list);
-		List<Map<String, Object>> assign_list = myappService.getListAssign();
+		List<Map<String, Object>> assign_list = myappService.getListAssign(mem.getSeq_id());
 		model.addAttribute("assign_list",assign_list);
 		return "sch/lecture";
 	}
 	
-	// ------占싹놂옙占쏙옙 占쏙옙占�------------
+	// ------detail view page------------
 	@RequestMapping(value="/lecture/{lec_id}")
 	public String getIdLec(@PathVariable int lec_id, Model model)
 	{
@@ -101,15 +104,18 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 	@RequestMapping(value="/enterprise/update")
 	public String updateEnt( int ent_id, Model model)
 	{
-		int seq = myappService.getSeqFromEnt(ent_id);
-		model.addAttribute("ent", myappService.getEntInfo(ent_id,seq));
+		
+		  int seq = myappService.getSeqFromEnt(ent_id); 
+		  model.addAttribute("ent",myappService.getEntInfo(ent_id,seq));
+		 
 		return "sch/update/update_ent";
 	}
 	
 	@RequestMapping(value="/enterprise/update", method=RequestMethod.POST)
-	public String updateEnt( EntVO ent, Model model)
+	public String updateEnt(HttpSession session, EntVO ent, Model model)
 	{	
-		
+		MemberVO mem = (MemberVO) session.getAttribute("member");
+		ent.setSeq_id(mem.getSeq_id());
 		myappService.updateEnt(ent);
 		return "redirect:/enterprise";
 	}
@@ -121,8 +127,10 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 	}
 	
 	@RequestMapping(value="/enterprise/insert",method=RequestMethod.POST)
-	public String insertEnt(EntVO ent, Model model)
+	public String insertEnt(HttpSession session,EntVO ent, Model model)
 	{
+		MemberVO mem = (MemberVO) session.getAttribute("member");
+		ent.setSeq_id(mem.getSeq_id());
 		myappService.insertEnt(ent);
 		return "redirect:/enterprise";
 	}
@@ -139,6 +147,7 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 	@RequestMapping(value="/lecture/update", method=RequestMethod.POST)
 	public String updateLec(LecVO lec, Model model)
 	{
+		
 		myappService.updateLec(lec);
 		return "redirect:/lecture";
 	}
@@ -151,8 +160,10 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 	
 
 	@RequestMapping(value="/lecture/insert", method=RequestMethod.POST)
-	public String insertLec(LecVO lec, Model model)
+	public String insertLec(HttpSession session,LecVO lec, Model model)
 	{
+		MemberVO mem = (MemberVO) session.getAttribute("member");
+		lec.setSeq_id(mem.getSeq_id());
 		myappService.insertLec(lec);
 		return "redirect:/lecture";
 	}
@@ -167,9 +178,10 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 	
 
 	@RequestMapping(value="/assign/insert", method=RequestMethod.POST)
-	public String inserAssign(AssignVO as, Model model)
+	public String inserAssign(HttpSession session, AssignVO as, Model model)
 	{
-
+		MemberVO mem = (MemberVO) session.getAttribute("member");
+		as.setLec_id(mem.getSeq_id());
 		myappService.insertAssign(as);
 		return "redirect:/lecture";
 	}
@@ -177,41 +189,71 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 	//-------------- mypage ----------------
 
 	@RequestMapping(value="/mypage", method=RequestMethod.GET)
-	public String GetMemberInfo(String mem_id, String mem_pw,Model model)
+	public String GetMemberInfo(HttpSession session,Model model)
 	{
-		model.addAttribute("mem", myappService.getMemberInfo(mem_id, mem_pw));
+		MemberVO mem = (MemberVO) session.getAttribute("member");
+		model.addAttribute("mem",mem);
+		System.out.println("mypage:"+mem.getMem_name()+mem.getSeq_id());
 		//model.addAttribute("mem", myappService.getMemberInfo("hello", "hi"));
 		return "sch/mypage/mypage";
 	}
 	
-	@RequestMapping(value="/mypage/login")
-	public String MypageLogin(MemberVO mem,  Model model)
+//	@RequestMapping(value="/mypage/login", method=RequestMethod.GET)
+//	public String MypageLogin(Model model)
+//	{
+////		//model.addAttribute("mem", myappService.getMemberInfo("hello", "hi"));
+////		model.addAttribute("mem", mem);
+//		return "sch/mypage/mypage_login";
+//	}
+//	
+	@RequestMapping(value="/mypage/login", method=RequestMethod.POST)
+	public String MypageLogin(HttpSession session,  Model model)
 	{
-		model.addAttribute("mem", myappService.getMemberInfo("hello", "hi"));
+		//model.addAttribute("mem", myappService.getMemberInfo("hello", "hi"));
+		MemberVO mem = (MemberVO) session.getAttribute("member");
+		model.addAttribute("mem", mem);
 		return "sch/mypage/mypage_login";
 	}
 	
 	@RequestMapping(value="/mypage/update", method=RequestMethod.GET)
-	public String updateMember(String mem_id, String mem_pw, Model model)
+	public String updateMember(HttpServletRequest req,Model model)
 	{
-		model.addAttribute(myappService.getMemberInfo(mem_id, mem_pw));
+		HttpSession session = req.getSession(true);
+		MemberVO mem = (MemberVO) session.getAttribute("member");
+		System.out.println("update  "+mem.getMem_name());
+		model.addAttribute("mem", mem);
 		return "sch/update/update_mem";
 	}
 	
+	//다른것도 이렇게 다 바꿔야하나?--------------------------------------------------------------------------------------------------------------------------
 	@RequestMapping(value="/mypage/update", method=RequestMethod.POST)
-	public String updateMember(MemberVO mem, Model model)
+	public String updateMember(MemberVO tmp_mem, HttpSession session, Model model)
 	{
+		MemberVO mem = (MemberVO) session.getAttribute("member");
+		if(!tmp_mem.getMem_id().equals(mem.getMem_id()))
+		{
+			mem.setMem_id(tmp_mem.getMem_id());
+		}
+		if(!tmp_mem.getMem_pw().equals(mem.getMem_pw()))
+		{
+			mem.setMem_pw(tmp_mem.getMem_pw());
+		}
+		if(!tmp_mem.getMem_name().equals(mem.getMem_name()))
+		{
+			mem.setMem_name(tmp_mem.getMem_name());
+		}
 		myappService.updateMember(mem);
-		return "sch/update/update_mem";
+		session.setAttribute("member",mem);
+		return "redirect:/mypage";
 	}
 	
 	
 	@RequestMapping(value="/mypage/delete", method=RequestMethod.GET)
-	public String deleteMember(int lec_id, Model model)
+	public String deleteMember(HttpSession session, Model model)
 	{
-		int seq = myappService.getSeqFromLec(lec_id);
-		model.addAttribute("mem",myappService.getLecInfo(lec_id,seq) );
-		return "sch/delete/delete_lec";
+		MemberVO mem = (MemberVO) session.getAttribute("member");
+		myappService.deleteMember(mem.getSeq_id());
+		return "redirect:/member/logout";
 	}
 	
 	
@@ -233,16 +275,18 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 	}
 
 	@RequestMapping(value="/assign/delete", method=RequestMethod.GET)
-	public String deleteAssignG(int lec_id, String asign_name, Model model)
+	public String deleteAssignG(HttpSession session,int lec_id, String asign_name, Model model)
 	{
-		model.addAttribute("assign",myappService.getAssignInfo(lec_id, asign_name) );
+		MemberVO mem = (MemberVO) session.getAttribute("member");
+		model.addAttribute("assign",myappService.getAssignInfo(lec_id, asign_name,mem.getSeq_id()) );
 		return "sch/delete/delete_as";
 	}
 	
 	@RequestMapping(value="/assign/delete", method=RequestMethod.POST)
-	public String deleteAssign(int lec_id, String asign_name, Model model)
+	public String deleteAssign(int lec_id, String asign_name,HttpSession session, Model model)
 	{ 
-		myappService.deleteAssign(lec_id, asign_name);
+		MemberVO mem = (MemberVO) session.getAttribute("member");
+		myappService.deleteAssign(lec_id, asign_name,mem.getSeq_id());
 		return "redirect:/lecture";
 	}
 
@@ -265,13 +309,15 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 	
 	//----------Login------------
 	
-	@RequestMapping(value="/member/login")
-	public String login(Model model)
-	{
+//	@RequestMapping(value="/member/login")
+	@RequestMapping(value="/")
+	public String login(Model model)throws Exception{
+	
 		return "sch/login/login";
 	}
 	
-	@RequestMapping(value = "/member/login", method = RequestMethod.POST)
+//	@RequestMapping(value = "/member/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String login(MemberVO member, HttpServletRequest req, RedirectAttributes rttr) throws Exception{
 		logger.info("post login");
 		HttpSession session = req.getSession();
@@ -280,21 +326,23 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 		String mem_pw = member.getMem_pw();
 
 		List<Map<String, Object>> list = myappService.getListMember();
+		System.out.println(list);
 		MemberVO login = null;
 		
 		for (Map<String, Object> map : list) {
 			if(map.get("mem_id").equals(mem_id)) {
-				login = myappService.getMemberInfo(mem_id, mem_pw);				
+				login = myappService.getMemberInfo(mem_id,mem_pw);	
 			}
 		}
 		
 		if(login == null) {
 			session.setAttribute("member", null);
 			rttr.addFlashAttribute("msg", false);
-			return "redirect:/member/login";
+//			return "redirect:/member/login";
+			return "redirect:/";
 		}else {
 			session.setAttribute("member", login);
-			return "redirect:/";
+			return "redirect:/home";
 		}
 		
 	}
@@ -303,22 +351,21 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 	public String logout(HttpSession session) throws Exception{
 		
 		session.invalidate();
-		
-		return "redirect:/member/login";
+
+		return "redirect:/";
 	}
 	
 	@RequestMapping(value = "/member/register", method = RequestMethod.GET)
 	public String register() throws Exception{
-		
 		return "sch/login/register";
 	}
 	
 	@RequestMapping(value = "/member/register", method = RequestMethod.POST)
 	public String registerMember(MemberVO member) throws Exception{
 		
-		myappService.insertMember(member);
-		
-		return "redirect:/member/login";
+		myappService.insertMember(member);		
+		return "redirect:/";
 	}
+	
 	
 }
