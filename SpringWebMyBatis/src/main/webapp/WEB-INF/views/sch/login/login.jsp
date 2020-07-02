@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
 <!doctype html>
-<html lang="en">
+
 <html>
 <head>
 <style>
@@ -56,7 +56,7 @@
 		<!-- <span class="align-middle">middle</span>
 	
 	 -->
-		<a class="navbar-brand"><img src="images/내일로고.jpg" height="80"
+		<a class="navbar-brand"><img src="/images/내일로고.jpg" height="80"
 			width="140"></a>
 
 
@@ -68,7 +68,8 @@
 			<br>
 			<br>
 
-			<form action="/member/login" method="post">
+			<!-- <form action="/member/login" method="post"> -->
+			<form action="/" method="post">
 				<table class="table table-hover" style="width: 400px;">
 					<colgroup>
 						<col width="40%" />
@@ -89,11 +90,11 @@
 				</table>
 				<br>
 
-				<button type="submit" class="btn btn-outline-info btn-sm"
-					value="로그인">로그인</button>
-				<button type="button" class="btn btn-outline-info btn-sm"
-					value="회원가입" onclick="location.href='register' ">회원가입</button>
-				<br> </br>
+				<input type="submit" class="btn btn-outline-info btn-sm"
+					value="로그인">
+				<a class="btn btn-outline-info btn-sm" href="<c:url value= '/member/register'/> ">회원가입</a>
+				<%-- <a class="btn btn-outline-info btn-sm" href="<c:url value= 'register'/> ">회원가입</a> --%>
+				<br> <br>
 			</form>
 			
 		</div>

@@ -1,4 +1,5 @@
 var events = [];
+
 var settings = {
 
 };
@@ -6,24 +7,24 @@ var settings = {
 var Calendar = function(model, options, date) {
 	// Default Values
 	this.Options = {
-		Color : '',
-		LinkColor : '#33BAFF',
-		NavShow : true,
-		NavVertical : false,
-		NavLocation : '',
-		DateTimeShow : true,
-		DateTimeFormat : 'mmm, yyyy',
-		DatetimeLocation : '',
-		EventClick : '',
-		EventTargetWholeDay : false,
-		DisabledDays : [],
-		ModelChange : model
+			Color : '',
+			LinkColor : '#0000FF',
+			NavShow : true,
+			NavVertical : false,
+			NavLocation : '',
+			DateTimeShow : true,
+			DateTimeFormat : 'mmm, yyyy',
+			DatetimeLocation : '',
+			EventClick : '',
+			EventTargetWholeDay : false,
+			DisabledDays : [],
+			ModelChange : model
 	};
 
 	// Overwriting default values
 	for ( var key in options) {
 		this.Options[key] = typeof options[key] == 'string' ? options[key]
-				.toLowerCase() : options[key];
+		.toLowerCase() : options[key];
 	}
 
 	model ? this.Model = model : this.Model = {};
@@ -63,13 +64,13 @@ function createCalendar(calendar, element, adjuster) {
 	} else {
 		for ( var key in calendar.Options) {
 			typeof calendar.Options[key] != 'function'
-					&& typeof calendar.Options[key] != 'object'
+				&& typeof calendar.Options[key] != 'object'
 					&& calendar.Options[key] ? element.className += " " + key
-					+ "-" + calendar.Options[key] : 0;
+							+ "-" + calendar.Options[key] : 0;
 		}
 	}
 	var months = [ "January", "February", "March", "April", "May", "June",
-			"July", "August", "September", "October", "November", "December" ];
+		"July", "August", "September", "October", "November", "December" ];
 
 	function AddSidebar() {
 		var sidebar = document.createElement('div');
@@ -92,26 +93,26 @@ function createCalendar(calendar, element, adjuster) {
 			if (i == 0) {
 				x.className += ' cld-rwd cld-nav';
 				x
-						.addEventListener(
-								'click',
-								function() {
-									typeof calendar.Options.ModelChange == 'function' ? calendar.Model = calendar.Options
-											.ModelChange()
-											: calendar.Model = calendar.Options.ModelChange;
+				.addEventListener(
+						'click',
+						function() {
+							typeof calendar.Options.ModelChange == 'function' ? calendar.Model = calendar.Options
+									.ModelChange()
+									: calendar.Model = calendar.Options.ModelChange;
 									createCalendar(calendar, element, -1);
-								});
+						});
 				x.innerHTML += '<svg height="15" width="15" viewBox="0 0 100 75" fill="rgba(255,255,255,0.5)"><polyline points="0,75 100,75 50,0"></polyline></svg>';
 			} else if (i == months.length - 4) {
 				x.className += ' cld-fwd cld-nav';
 				x
-						.addEventListener(
-								'click',
-								function() {
-									typeof calendar.Options.ModelChange == 'function' ? calendar.Model = calendar.Options
-											.ModelChange()
-											: calendar.Model = calendar.Options.ModelChange;
+				.addEventListener(
+						'click',
+						function() {
+							typeof calendar.Options.ModelChange == 'function' ? calendar.Model = calendar.Options
+									.ModelChange()
+									: calendar.Model = calendar.Options.ModelChange;
 									createCalendar(calendar, element, 1);
-								});
+						});
 				x.innerHTML += '<svg height="15" width="15" viewBox="0 0 100 75" fill="rgba(255,255,255,0.5)"><polyline points="0,0 100,0 50,75"></polyline></svg>';
 			} else {
 				if (i < 4) {
@@ -130,13 +131,13 @@ function createCalendar(calendar, element, adjuster) {
 					// function(){createCalendar(calendar, element,
 					// adj);console.log('kk', adj);} );
 					x.addEventListener(
-									'click',
-									function() {
-										typeof calendar.Options.ModelChange == 'function' ? calendar.Model = calendar.Options
-												.ModelChange()
-												: calendar.Model = calendar.Options.ModelChange;
+							'click',
+							function() {
+								typeof calendar.Options.ModelChange == 'function' ? calendar.Model = calendar.Options
+										.ModelChange()
+										: calendar.Model = calendar.Options.ModelChange;
 										createCalendar(calendar, element, adj);
-									});
+							});
 					x.setAttribute('style', 'opacity:'
 							+ (1 - Math.abs(adj) / 4));
 					x.innerHTML += months[n].substr(0, 3);
@@ -183,7 +184,7 @@ function createCalendar(calendar, element, adjuster) {
 		var today = document.createElement('div');
 		today.className += ' today';
 		today.innerHTML = months[calendar.Selected.Month] + ", "
-				+ calendar.Selected.Year;
+		+ calendar.Selected.Year;
 		datetime.appendChild(today);
 		if (calendar.Options.NavShow && !calendar.Options.NavVertical) {
 			var fwd = document.createElement('div');
@@ -197,7 +198,7 @@ function createCalendar(calendar, element, adjuster) {
 		if (calendar.Options.DatetimeLocation) {
 			document.getElementById(calendar.Options.DatetimeLocation).innerHTML = "";
 			document.getElementById(calendar.Options.DatetimeLocation)
-					.appendChild(datetime);
+			.appendChild(datetime);
 		} else {
 			mainSection.appendChild(datetime);
 		}
@@ -264,9 +265,14 @@ function createCalendar(calendar, element, adjuster) {
 				if (evDate.getTime() == toDate.getTime()) {
 					number.className += " eventday";
 					var title = document.createElement('span');
+					
 					title.className += "cld-title";
+					if(calendar.Model[n].Category === "lecture")
+						title.className += " lecture";
+					if(calendar.Model[n].Category === "enterprise")
+						title.className += " enterprise";
 					if (typeof calendar.Model[n].Link == 'function'
-							|| calendar.Options.EventClick) {
+						|| calendar.Options.EventClick) {
 						var a = document.createElement('a');
 						a.setAttribute('href', '#');
 						a.style.color = "#FF0000";
@@ -282,13 +288,13 @@ function createCalendar(calendar, element, adjuster) {
 								if (calendar.Options.EventTargetWholeDay) {
 									day.className += " clickable";
 									day
-											.addEventListener(
-													'click',
-													calendar.Options.EventClick.bind
-															.apply(
-																	calendar.Options.EventClick,
-																	[ null ]
-																			.concat(z)));
+									.addEventListener(
+											'click',
+											calendar.Options.EventClick.bind
+											.apply(
+													calendar.Options.EventClick,
+													[ null ]
+													.concat(z)));
 								}
 							} else {
 								a.addEventListener('click',
@@ -312,7 +318,7 @@ function createCalendar(calendar, element, adjuster) {
 						title.appendChild(a);
 					} else {
 						title.innerHTML += '<a href="' + calendar.Model[n].Link
-								+ '">' + calendar.Model[n].Title + '</a>';
+						+ '">' + calendar.Model[n].Title + '</a>';
 					}
 					number.appendChild(title);
 				}
@@ -355,11 +361,11 @@ function createCalendar(calendar, element, adjuster) {
 	}
 	if (calendar.Options.Color) {
 		mainSection.innerHTML += '<style>.cld-main{color:'
-				+ calendar.Options.Color + ';}</style>';
+			+ calendar.Options.Color + ';}</style>';
 	}
 	if (calendar.Options.LinkColor) {
 		mainSection.innerHTML += '<style>.cld-title a{color:'
-				+ calendar.Options.LinkColor + ';}</style>';
+			+ calendar.Options.LinkColor + ';}</style>';
 	}
 	element.appendChild(mainSection);
 
@@ -384,87 +390,95 @@ window.addEventListener("load", function() {
 	console.log(result);
 	var event_name = ['면접일', ' 서류마감', ' 마감'];
 	for (i = 0; i < result.length; i++) {
-/*		console.log(result[i].ASIGN_NAME);
+		/*		console.log(result[i].ASIGN_NAME);
 		console.log(result[i].ASIGN_END);*/
 		var lec_id = result[i].LEC_ID;
 		var end_ymd = result[i].ASIGN_END;    
-	    var yyyy = end_ymd.substr(0,4);
-	    var mm = end_ymd.substr(5,2)-1;
-	    var dd = end_ymd.substr(8,2); 
-	    var check = result[i].ASIGN_NAME.substr(-2,2);
-	    if(check=='시험' || check=='고사' || check=='퀴즈')
-	    {
-	    	events.push({
+		var yyyy = end_ymd.substr(0,4);
+		var mm = end_ymd.substr(5,2)-1;
+		var dd = end_ymd.substr(8,2); 
+		var check = result[i].ASIGN_NAME.substr(-2,2);
+		if(check=='시험' || check=='고사' || check=='퀴즈')
+		{
+			events.push({
 				'Date' : new Date(yyyy,mm,dd),
 				'Title' : result[i].ASIGN_NAME,
-				'Link':'./lecture/'+lec_id
+				'Link':'./lecture/'+lec_id,
+				'Category':'lecture'
 			})
-	    	
-	    }
-	    else
-	    {
-	    	events.push({
+
+		}
+		else
+		{
+			events.push({
 				'Date' : new Date(yyyy,mm,dd),
 				'Title' : result[i].ASIGN_NAME + event_name[2],
-				'Link':'./lecture/'+lec_id
+				'Link':'./lecture/'+lec_id,
+				'Category':'lecture'
 			})
-	    }
-		
-		};
-		
-		for (i = 0; i < result2.length; i++) {
-/*			console.log(result2[i].ENT_ID);
+		}
+
+	};
+
+	for (i = 0; i < result2.length; i++) {
+		/*			console.log(result2[i].ENT_ID);
 			console.log(result2[i].PAPER_END);*/
-			var ent_id = result2[i].ENT_ID;
-			var end_ymd = result2[i].PAPER_END;    
+		var ent_id = result2[i].ENT_ID;
+		var end_ymd = result2[i].PAPER_END;    
+		var yyyy = end_ymd.substr(0,4);
+		var mm = end_ymd.substr(5,2)-1;
+		var dd = end_ymd.substr(8,2); 
+		events.push({
+			'Date' : new Date(yyyy,mm,dd),
+			'Title' : result2[i].ENT_NAME+event_name[1],
+			'Link':'./enterprise/'+ent_id,
+			'Category':'enterprise'
+			
+		})
+
+
+		if(result2[i].INTERVIEW1.substr(0,4) != '2999')
+		{
+			var end_ymd = result2[i].INTERVIEW1;    
 			var yyyy = end_ymd.substr(0,4);
 			var mm = end_ymd.substr(5,2)-1;
 			var dd = end_ymd.substr(8,2); 
 			events.push({
 				'Date' : new Date(yyyy,mm,dd),
-				'Title' : result2[i].ENT_NAME+event_name[1],
-				'Link':'./enterprise/'+ent_id
+				'Title' : result2[i].ENT_NAME+' 1차'+event_name[0],
+				'Link':'./enterprise/'+ent_id,
+				'Category':'enterprise'
 			})
-			
-			
-			if(result2[i].INTERVIEW1.substr(0,4) != '2999')
-			{
-				var end_ymd = result2[i].INTERVIEW1;    
-				var yyyy = end_ymd.substr(0,4);
-				var mm = end_ymd.substr(5,2)-1;
-				var dd = end_ymd.substr(8,2); 
-				events.push({
-					'Date' : new Date(yyyy,mm,dd),
-					'Title' : result2[i].ENT_NAME+' 1차'+event_name[0],
-					'Link':'./enterprise/'+ent_id
-				})
-			}
-			if(result2[i].INTERVIEW2.substr(0,4) != '2999')
-			{
-				var end_ymd = result2[i].INTERVIEW2;    
-				var yyyy = end_ymd.substr(0,4);
-				var mm = end_ymd.substr(5,2)-1;
-				var dd = end_ymd.substr(8,2); 
-				events.push({
-					'Date' : new Date(yyyy,mm,dd),
-					'Title' : result2[i].ENT_NAME+' 2차'+event_name[0],
-					'Link':'./enterprise/'+ent_id
-				})
-			}
-			if(result2[i].INTERVIEW3.substr(0,4) != '2999')
-			{
-				var end_ymd = result2[i].INTERVIEW3;    
-				var yyyy = end_ymd.substr(0,4);
-				var mm = end_ymd.substr(5,2)-1;
-				var dd = end_ymd.substr(8,2); 
-				events.push({
-					'Date' : new Date(yyyy,mm,dd),
-					'Title' : result2[i].ENT_NAME+' 3차'+event_name[0],
-					'Link': './enterprise/'+ent_id
-				})
-			}
-		};
-	
+		}
+		if(result2[i].INTERVIEW2.substr(0,4) != '2999')
+		{
+			var end_ymd = result2[i].INTERVIEW2;    
+			var yyyy = end_ymd.substr(0,4);
+			var mm = end_ymd.substr(5,2)-1;
+			var dd = end_ymd.substr(8,2); 
+			events.push({
+				'Date' : new Date(yyyy,mm,dd),
+				'Title' : result2[i].ENT_NAME+' 2차'+event_name[0],
+				'Link':'./enterprise/'+ent_id,
+				'Category':'enterprise'
+			})
+		}
+		if(result2[i].INTERVIEW3.substr(0,4) != '2999')
+		{
+			var end_ymd = result2[i].INTERVIEW3;    
+			var yyyy = end_ymd.substr(0,4);
+			var mm = end_ymd.substr(5,2)-1;
+			var dd = end_ymd.substr(8,2); 
+			events.push({
+				'Date' : new Date(yyyy,mm,dd),
+				'Title' : result2[i].ENT_NAME+' 3차'+event_name[0],
+				'Link': './enterprise/'+ent_id,
+				'Category':'enterprise'
+			})
+		}
+	};
+
 	caleandar(element, events, settings);
+//	caleandar(element, events2, settings2);
 
 });

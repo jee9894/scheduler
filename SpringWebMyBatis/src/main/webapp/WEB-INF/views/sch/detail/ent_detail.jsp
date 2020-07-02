@@ -12,13 +12,14 @@
 	    color: #81898E;
 	}
 </style>
-<title>기업 상세 정보</title>
-</head>
-<body>
-	<link rel="stylesheet"
+<link rel="stylesheet"
 		href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
 		crossorigin="anonymous">
+<title>기업 상세 정보</title>
+</head>
+<body>
+	
 
 	<nav class="navbar navbar-expand-lg navbar-dark"
 		style="background-color: #87AFEB;">
@@ -35,7 +36,7 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item "><a class="nav-link" href="../">홈
+				<li class="nav-item "><a class="nav-link" href="../home">홈
 						<span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link" href="../lecture">수강

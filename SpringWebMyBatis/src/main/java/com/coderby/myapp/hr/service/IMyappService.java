@@ -14,17 +14,17 @@ public interface IMyappService {
 	int getLecCount();				//수강 과목 수
 	//getAssignCount(int lec_id);
 
-	List<Map<String, Object>> getListLec();
-	List<Map<String, Object>> getListLec(int lec_id,int seq_id);
-	List<Map<String, Object>> getListEnt();
-	List<Map<String, Object>> getListAssign(int lec_id,int seq_id);
-	List<Map<String, Object>> getListAssign();
+	int getSeqNextVal();
+	List<Map<String, Object>> getListLec(int seq_id);
+	List<Map<String, Object>> getListEnt(int seq_id);
+	List<Map<String, Object>> getListAssign(int seq_id);
 	List<Map<String, Object>> getListMember(int seq_id);
-	List<Map<String, Object>> getListMember(int mem_id, int mem_pw);
+	List<Map<String, Object>> getListMember(String mem_id, String mem_pw);
 	List<Map<String, Object>> getListMember();
 	
 	AssignVO getAssignInfo(int lec_id);
-	AssignVO getAssignInfo(int lec_id, String asign_name);
+	//AssignVO getAssignInfo(int lec_id, String asign_name);
+	AssignVO getAssignInfo(int lec_id, String asign_name,int seq_id);
 	EntVO getEntInfo(int ent_id, int seq_id);
 	LecVO getLecInfo(int lec_id, int seq_id);
 	MemberVO getMemberInfo(int seq_id); //회원 정보 열람
@@ -47,8 +47,9 @@ public interface IMyappService {
 		
 	void deleteEnt(int ent_id, int seq_id); 	//기업 삭제
 	void deleteLec(int lec_id, int seq_id);		//과목 삭제
-	void deleteAssign(int lec_id, String asign_name);	//과제 삭제
+	void deleteAssign(int lec_id, String asign_name, int seq_id);	//과제 삭제
 	void deleteMember(String mem_id, String mem_pw);	//회원 탈퇴	
+	void deleteMember(int seq_id);
 	}
 	
 	

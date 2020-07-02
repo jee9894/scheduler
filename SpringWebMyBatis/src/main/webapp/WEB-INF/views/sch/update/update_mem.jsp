@@ -5,20 +5,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>기업 정보 수정</title>
+<title>나의 정보 수정</title>
 <style>
 	#tmp{
 	    margin-left: 50%;
 	    color: #81898E;
 	}
 </style>
-<link rel="stylesheet"
-		href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-		crossorigin="anonymous">
+
 </head>
 <body>
-	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+		crossorigin="anonymous">
 
 	<nav class="navbar navbar-expand-lg navbar-dark"
 		style="background-color: #87AFEB;">
@@ -55,10 +54,10 @@
 		style="background-color: #E3EEFC;">
 		<div class="container">
 		
-		<span id="tmp" class="navbar-item">기업 정보 수정</span>
+		<span id="tmp" class="navbar-item">나의 정보 수정</span>
 		</div>
 		</nav>
-	<form action="<c:url value='/enterprise/update'/>" method="post">
+	<form action="<c:url value='/mypage/update'/>" method="post">
 		<br>
 		<div class="container">
 
@@ -68,45 +67,29 @@
 					<col width="85%" />
 				</colgroup>
 
-			<%-- 	<tr>
-					<th scope="col">기업 ID</th>
-					<td>${ent.ent_id}</td>
-				</tr> --%>
 				<tr>
-					<th scope="col">기업명</th>
-					<td><input type="text" name="ent_name" value=${ent.ent_name}></td>
+					<th scope="col">이름</th>
+					<td><input type="text" name="mem_name" value=${mem.mem_name}></td>
 				</tr>
 				<tr>
-					<th scope="col">서류마감일</th>
-					<td><input type="date" name="paper_end" value=${ent.paper_end}></td>
+					<th scope="col">아이디</th>
+					<td><input type="text" name="mem_id" value=${mem.mem_id}></td>
 				</tr>
 				<tr>
-					<th scope="col">1차 면접일</th>
-					<td><input type="date" name="interview1"
-						value=${ent.interview1}></td>
+					<th scope="col">패스워드</th>
+					<td><input type="password" name="mem_pw" value=${mem.mem_pw}></td>
 				</tr>
-				<tr>
-					<th scope="col">2차 면접일</th>
-					<td><input type="date" name="interview2"
-						value=${ent.interview2}></td>
-				</tr>
-				<tr>
-					<th scope="col">3차 면접일</th>
-					<td><input type="date" name="interview3"
-						value=${ent.interview3}></td>
-				</tr>
+				
 				</table>
-			
-					<input type="hidden" name="ent_id" value=${ent.ent_id}>
+				<input type="hidden" name="seq_id" value=${mem.seq_id}>
 						<br> <input class="btn btn-outline-info btn-sm" type="submit"
 						value="수정"> 
 						</form>
 						
-						
 						<a class="btn btn-outline-info btn-sm" 
-						href="../enterprise">취소</a>
-				
-			
+						href="../mypage/delete">회원탈퇴</a>
+						<a class="btn btn-outline-info btn-sm" 
+						href="../mypage">취소</a>
 	
 	</div>
 </body>
