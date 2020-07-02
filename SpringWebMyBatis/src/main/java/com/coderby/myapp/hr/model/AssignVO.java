@@ -8,7 +8,7 @@ public class AssignVO {
 
 	@Autowired
 	LecVO lec;
-	
+	private int seq_id;
 	private int lec_id;
 	private String asign_name = null;
 	private Date asign_end= null;
@@ -16,6 +16,14 @@ public class AssignVO {
 		return lec_id;
 	}
 	
+	public int getSeq_id() {
+		return seq_id;
+	}
+
+	public void setSeq_id(int seq_id) {
+		this.seq_id = seq_id;
+	}
+
 	public void setLec_id(int lec_id) {
 		this.lec_id = lec_id;
 	}

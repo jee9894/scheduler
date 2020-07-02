@@ -25,7 +25,6 @@
 	margin-right: auto;
 	text-align: left;
 }
-
 btt {
 	width: 85px;
 	float: center;
@@ -41,7 +40,7 @@ btt {
 			integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
 			crossorigin="anonymous">
 		<div class="mx-auto" style="width: 200px;">
-			<a class="navbar-brand"><img src="images/내일로고.jpg" width="140"; height="80"></a>
+			<a class="navbar-brand"><img src="/images/내일로고.jpg" width="140"; height="80"></a>
 		</div>
 		<br>
 		<div class="container"
@@ -65,7 +64,7 @@ btt {
 
 							<tr>
 								<td id="title">비밀번호 확인</td>
-								<td><input type="password" name="" maxlength="15">
+								<td><input type="password" name="password" maxlength="15">
 								</td>
 							</tr>
 
@@ -75,9 +74,9 @@ btt {
 							</tr>
 
 						</table>
-
-						<btt> <input type="submit"
-							class="btn btn-outline-info btn-sm" value="가입" /> </btt>
+						<input type="submit" 
+							class="btn btn-outline-info btn-sm" value="가입" />
+						 
 				</form>
 		</div>
 

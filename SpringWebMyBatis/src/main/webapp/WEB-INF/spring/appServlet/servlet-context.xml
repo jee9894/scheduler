@@ -24,7 +24,7 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
-	<mvc:view-controller path="/" view-name="home" />
+	<mvc:view-controller path="/" view-name="/login/login" />
 	
 	<mvc:resources location="/WEB-INF/resources/" mapping="/**" />
 	<mvc:resources location="/WEB-INF/resources/images/" mapping="/images/**" />

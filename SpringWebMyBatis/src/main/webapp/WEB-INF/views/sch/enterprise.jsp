@@ -43,7 +43,7 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 
-					<li class="nav-item ml-5"><a class="nav-link" href="./">홈
+					<li class="nav-item ml-5"><a class="nav-link" href="./home">홈
 
 					</a></li>
 					<li class="nav-item "><a class="nav-link" href="./lecture">수강

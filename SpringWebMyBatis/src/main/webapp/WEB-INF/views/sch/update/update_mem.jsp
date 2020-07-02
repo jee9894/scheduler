@@ -15,8 +15,7 @@
 
 </head>
 <body>
-	<link rel="stylesheet"
-		href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
 		crossorigin="anonymous">
 
@@ -34,7 +33,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item "><a class="nav-link" href="../">홈
+					<li class="nav-item "><a class="nav-link" href="../home">홈
 							<span class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item"><a class="nav-link" href="../lecture">수강
@@ -78,19 +77,19 @@
 				</tr>
 				<tr>
 					<th scope="col">패스워드</th>
-					<td><input type="text" name="mem_pw" value=${mem.mem_pw]}></td>
+					<td><input type="password" name="mem_pw" value=${mem.mem_pw}></td>
 				</tr>
 				
 				</table>
-			
-					<input type="hidden" name="seq_id" value=${mem.seq_id}>
+				<input type="hidden" name="seq_id" value=${mem.seq_id}>
 						<br> <input class="btn btn-outline-info btn-sm" type="submit"
 						value="수정"> 
 						</form>
 						
-						
 						<a class="btn btn-outline-info btn-sm" 
-						href="../">취소</a>
+						href="../mypage/delete">회원탈퇴</a>
+						<a class="btn btn-outline-info btn-sm" 
+						href="../mypage">취소</a>
 	
 	</div>
 </body>
